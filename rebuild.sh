@@ -45,6 +45,12 @@ done
 # put cwd to script path
 cd "$(dirname "$0")"
 
+# check if cwd is /home/$USER/nix
+if [[ "$PWD" != "/home/$SUDO_USER/nix" ]]; then
+    warning_echo "Please make sure your nix files are located in /home/$SUDO_USER/nix"
+    exit 1
+fi
+
 # destructively copying files
 if [ -d "./files" ]; then
     warning_echo "Copying files destructively"
@@ -93,12 +99,17 @@ fi
 # if --upgrade is set, run nix flake update first
 if [[ "$options_upgrade" == true ]]; then
     info_echo "Running nix flake update"
-    nix flake update
+    nix flake update --flake path:/home/$SUDO_USER/nix/system
+
+    # if not success, exit
+    if [[ "$?" -ne 0 ]]; then
+        exit $?
+    fi
 fi
 
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
-nixos-rebuild switch --flake path:./system
+nixos-rebuild switch --flake path:/home/$SUDO_USER/nix/system
 
 # if not success, exit
 if [[ "$?" -ne 0 ]]; then
