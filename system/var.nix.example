@@ -1,0 +1,14 @@
+# Custom configuration variables
+
+{
+  # NixOS hardware configuration quirks
+  #   check this list: https://github.com/NixOS/nixos-hardware/blob/master/flake.nix
+  # nixos-hardware = "lenovo-legion-16achg6-nvidia";
+
+  # Comment this out to keep nix-channel
+  #   note that you will need to re-add channels if nix-channel is already removed before.
+  no-nix-channel = true;
+
+  # Username
+  username = "tsfreddie";
+}

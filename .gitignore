@@ -1,0 +1,8 @@
+# custom config
+/system/var.nix
+
+# configuration
+/system/configuration.nix
+
+# hardware config
+/system/hardware-configuration.nix
