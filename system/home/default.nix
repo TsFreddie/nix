@@ -50,6 +50,7 @@ in
       # stable packages
       discord
       qq
+      wechat-uos
     ]);
 
   # basic configuration of git, please change to your own
