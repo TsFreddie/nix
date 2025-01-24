@@ -77,7 +77,7 @@ if [ ! -f "./system/var.nix" ]; then
 fi
 
 # check if no-nix-channel is set to true in var.nix
-if grep -Eq '^[^#]*no-nix-channel *= *true' /etc/nixos/var.nix; then
+if grep -Eq '^[^#]*no-nix-channel *= *true' ./system/var.nix; then
   # if ./no-nix-channel.nix is referenced, remove these files if they exist:
   channel_leftovers=(
     /root/.nix-defexpr/channels
