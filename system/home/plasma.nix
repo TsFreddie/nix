@@ -17,4 +17,15 @@
       variant = "colemak";
     }
   ];
+
+  # theme
+  programs.plasma.workspace.theme = "breeze-dark";
+
+  # konsole
+  programs.konsole.enable = true;
+  programs.konsole.profiles = {
+    tsfreddie = {
+      font.name = "Fira Code";
+    };
+  };
 }

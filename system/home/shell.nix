@@ -23,12 +23,12 @@
       "$line_break"
       "[┌─](bold green)$directory$rust$package"
       "$line_break"
-      "[└$character](bold green)"
+      "[└$character ](bold green)"
     ];
     scan_timeout = 10;
     character = {
-      success_symbol = "➜";
-      error_symbol = "➜";
+      success_symbol = "->";
+      error_symbol = "->";
     };
   };
 }
