@@ -20,6 +20,30 @@
 
   # theme
   programs.plasma.workspace.theme = "breeze-dark";
+  programs.plasma.fonts =
+    let
+      regular = {
+        family = "Noto Sans CJK SC";
+        weight = "normal";
+        pointSize = 10;
+      };
+      mono = {
+        family = "Noto Sans Mono";
+        weight = "normal";
+        pointSize = 10;
+      };
+    in
+    {
+      general = regular;
+      fixedWidth = mono;
+      small = {
+        inherit (regular) family weight;
+        pointSize = 8;
+      };
+      toolbar = regular;
+      menu = regular;
+      windowTitle = regular;
+    };
 
   # konsole
   programs.konsole.enable = true;
