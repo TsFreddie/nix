@@ -17,5 +17,6 @@ in
     bitwarden-desktop
     bitwarden-cli
     gamescope
+    mpv
   ];
 }
