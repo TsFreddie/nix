@@ -13,6 +13,9 @@ in
   # Substituters
   nix.settings.substituters = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
+  # Enable bluetooth
+  hardware.bluetooth.enable = true;
+
   # Install steam.
   programs.steam = {
     enable = true;

@@ -21,9 +21,9 @@
     add_newline = false;
     format = lib.concatStrings [
       "$line_break"
-      "[┌─](bold green)$directory$rust$package"
+      "[┌─](bold green) $directory$rust$package"
       "$line_break"
-      "[└$character ](bold green)"
+      "[└$character](bold green)"
     ];
     scan_timeout = 10;
     character = {

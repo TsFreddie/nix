@@ -16,5 +16,6 @@ in
     thunderbird
     bitwarden-desktop
     bitwarden-cli
+    gamescope
   ];
 }
