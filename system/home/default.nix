@@ -45,6 +45,8 @@ in
     [ ]
     ++ (with pkgs; [
       # unstable packages
+      bun
+      nodejs_22
     ])
     ++ (with stable; [
       # stable packages
