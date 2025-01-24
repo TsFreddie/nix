@@ -1,5 +1,6 @@
 # custom config
 /system/var.nix
+/system/custom.nix
 
 # configuration
 /system/configuration.nix

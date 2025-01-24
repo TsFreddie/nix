@@ -79,6 +79,10 @@
                 home-manager.users.${var.username} = import ./home;
               }
             ]
+            # use custom.nix module if exists
+            ++ lib.optionals (builtins.pathExists ./custom.nix) [
+              ./custom.nix
+            ]
             # use nixos-hardware config if defined in var.nix
             ++ lib.optionals (builtins.hasAttr "nixos-hardware" var) [
               nixos-hardware.nixosModules.${var.nixos-hardware}
