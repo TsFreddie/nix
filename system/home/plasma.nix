@@ -20,6 +20,8 @@
 
   # theme
   programs.plasma.workspace.theme = "breeze-dark";
+
+  # fonts
   programs.plasma.fonts =
     let
       regular = {
