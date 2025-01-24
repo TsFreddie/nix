@@ -24,8 +24,10 @@
   # konsole
   programs.konsole.enable = true;
   programs.konsole.profiles = {
-    tsfreddie = {
-      font.name = "Fira Code";
+    nix = {
+      font.name = "FiraCode Nerd Font Mono";
+      font.size = 12;
     };
   };
+  programs.konsole.defaultProfile = "nix";
 }
