@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
+
+#note from melon:
+# this is neither necessesary nor needed.
+#while this "automates" deployment, nix's rebuild and nix flakes handle this already
+#you could replace all of this with a simple shell script that commits and pushes your changes when a rebuild was successful.
+#espacially not pushing up your configuration and home.nix file is actually decreasing reproducability.
+#also writing shell scripts, while functional isnt pure, so i dont recommend it.
+#write it in nix and if neccessary write bash using pkgs.writeShellApplication or a shellHook wie pkgs.mkShell
+#an example file structure could look like this:
+
+##########################################
+#  ~/                                    #
+#   | -nix/                              #
+#   |----|-configuration.nix             #
+#   |----|-home.nix                      # 
+#   |----|-flake.nix                     #
+#   |----|-system/                       #
+#   |----|-var/                          #
+#   |----|-scripts/deployment.nix        #
+##########################################
+
 # define color
 INFO_COLOR='\033[1;34m'
 SUCCESS_COLOR='\033[1;32m'
