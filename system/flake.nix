@@ -38,23 +38,27 @@
         inherit system;
         config.allowUnfree = true;
       };
+      lib = nixpkgs.lib;
+      var = lib.optionalAttrs (builtins.pathExists ./var.nix) (import ./var.nix);
       specialArgs = {
         inherit inputs;
         inherit var;
         inherit pkgs;
         inherit stable;
       };
-      lib = nixpkgs.lib;
-      var = lib.optionalAttrs (builtins.pathExists ./var.nix) (import ./var.nix);
     in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
-          inherit system;
+        ${var.hostname} = lib.nixosSystem {
           inherit specialArgs;
 
           modules =
             [
+              {
+                imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
+                nixpkgs.pkgs = pkgs;
+              }
+
               ./configuration.nix
               ./nixos
 

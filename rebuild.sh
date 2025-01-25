@@ -20,9 +20,13 @@ fi
 options_dry_run=false
 options_upgrade=false
 options_files_only=false
+options_hostname=""
 
 for i in "$@"; do
     case $i in
+        --hostname=*)
+            options_hostname="${i#*=}"
+            ;;
         --dry-run)
             # dry run copies the files but does not build or commit
             options_dry_run=true
@@ -63,7 +67,6 @@ fi
 
 # copy system nix files
 info_echo "Syncing system configuration"
-cp /etc/nixos/configuration.nix ./system/configuration.nix
 cp /etc/nixos/hardware-configuration.nix ./system/hardware-configuration.nix
 
 # check var.nix
@@ -109,7 +112,11 @@ fi
 
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
-nixos-rebuild switch --flake path:/home/$SUDO_USER/nix/system
+if [[ -n "$options_hostname" ]]; then
+    nixos-rebuild switch --flake path:/home/$SUDO_USER/nix/system#$options_hostname
+else
+    nixos-rebuild switch --flake path:/home/$SUDO_USER/nix/system
+fi
 
 # if not success, exit
 if [[ "$?" -ne 0 ]]; then
