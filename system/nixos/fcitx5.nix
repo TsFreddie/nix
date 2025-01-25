@@ -1,4 +1,4 @@
-{ imports, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # install fcitx5

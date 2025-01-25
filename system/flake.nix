@@ -29,29 +29,27 @@
       ...
     }@inputs:
     let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      specialArgs = {
+        inherit inputs;
+        inherit var;
+        inherit pkgs;
+        inherit stable;
+      };
       lib = nixpkgs.lib;
       var = lib.optionalAttrs (builtins.pathExists ./var.nix) (import ./var.nix);
     in
     {
-      nixosConfigurations.nixos =
-        let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;              
-          };
-          stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          specialArgs = {
-            inherit inputs;
-            inherit var;
-            inherit pkgs;
-            inherit stable;
-          };
-        in
-        nixpkgs.lib.nixosSystem {
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           inherit specialArgs;
 
@@ -86,5 +84,6 @@
               ./var/no-nix-channel.nix
             ];
         };
+      };
     };
 }

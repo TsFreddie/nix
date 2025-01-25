@@ -1,6 +1,6 @@
 # Removes nix channel. Use flake exclusively.
 
-{ lib, inputs, ... }:
+{ inputs, ... }:
 
 {
   nix.registry = {

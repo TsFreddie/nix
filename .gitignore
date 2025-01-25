@@ -2,8 +2,5 @@
 /system/var.nix
 /system/custom.nix
 
-# configuration
-/system/configuration.nix
-
 # hardware config
 /system/hardware-configuration.nix

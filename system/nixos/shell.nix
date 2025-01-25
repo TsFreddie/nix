@@ -1,4 +1,4 @@
-{ imports, var, pkgs, ... }:
+{ var, pkgs, ... }:
 
 {
   # default shell

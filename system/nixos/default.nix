@@ -1,4 +1,8 @@
-{ imports, lib, stable, ... }:
+{
+  lib,
+  stable,
+  ...
+}:
 
 {
   imports = lib.fileset.toList (
