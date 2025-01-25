@@ -1,8 +1,5 @@
-{ imports, lib, ... }:
+{ imports, lib, stable, ... }:
 
-let
-  stable = imports.stable;
-in
 {
   imports = lib.fileset.toList (
     lib.fileset.fileFilter (

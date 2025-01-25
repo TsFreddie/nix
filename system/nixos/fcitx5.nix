@@ -1,8 +1,5 @@
-{ imports, ... }:
+{ imports, pkgs, ... }:
 
-let
-  pkgs = imports.pkgs;
-in
 {
   # install fcitx5
   i18n.inputMethod = {

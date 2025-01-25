@@ -1,8 +1,5 @@
-{ imports, var, ... }:
+{ imports, var, pkgs, ... }:
 
-let
-  pkgs = imports.pkgs;
-in
 {
   # default shell
   programs.zsh.enable = true;
