@@ -29,10 +29,32 @@
       ...
     }@inputs:
     let
+      #if you want to use let, use it to cover more cases, this helps with readability. (e.g:
+      #let
+      #    system = "x86_64-linux";
+      #    pkgs = import nixpkgs {
+      #      inherit system;
+      #      config.allowUnfree = true;              
+      #    };
+      #    stable = import nixpkgs-stable {
+      #      inherit system;
+      #      config.allowUnfree = true;
+      #    };
+      # 
+      # instead of in your user configuration. helps immensely when managing multiple systems/users.
+      #)
+
       lib = nixpkgs.lib;
       var = lib.optionalAttrs (builtins.pathExists ./var.nix) (import ./var.nix);
     in
     {
+      #did you leave it nixos on purpose? why not use a more fitting system name? (e.g TsFreddie)
+      #nixosConfigurations = {
+      #  freddie = nixpkgs.lib.nixosSystem {
+      #    specialArgs = {
+      #      inherit *;
+      #    };
+      #  }
       nixosConfigurations.nixos =
         let
           system = "x86_64-linux";
