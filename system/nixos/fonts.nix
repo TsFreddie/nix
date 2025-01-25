@@ -1,8 +1,5 @@
-{ imports, ... }:
+{ imports, pkgs, ... }:
 
-let
-  pkgs = imports.pkgs;
-in
 {
   # Fonts
   fonts.packages = with pkgs; [

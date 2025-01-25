@@ -38,23 +38,17 @@
           system = "x86_64-linux";
           pkgs = import nixpkgs {
             inherit system;
-            config = {
-              allowUnfree = true;
-            };
+            config.allowUnfree = true;              
           };
           stable = import nixpkgs-stable {
             inherit system;
-            config = {
-              allowUnfree = true;
-            };
+            config.allowUnfree = true;
           };
           specialArgs = {
             inherit inputs;
             inherit var;
-            imports = {
-              inherit pkgs;
-              inherit stable;
-            };
+            inherit pkgs;
+            inherit stable;
           };
         in
         nixpkgs.lib.nixosSystem {

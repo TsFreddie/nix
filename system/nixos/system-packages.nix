@@ -1,9 +1,5 @@
-{ imports, ... }:
+{ imports, pkgs, stable, ... }:
 
-let
-  pkgs = imports.pkgs;
-  stable = imports.stable;
-in
 {
   environment.systemPackages = with pkgs; [
     git

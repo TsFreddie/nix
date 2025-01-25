@@ -2,13 +2,11 @@
   imports,
   var,
   lib,
+  pkgs,
+  stable,
   ...
 }:
 
-let
-  pkgs = imports.pkgs;
-  stable = imports.stable;
-in
 {
   imports = lib.fileset.toList (
     lib.fileset.fileFilter (
