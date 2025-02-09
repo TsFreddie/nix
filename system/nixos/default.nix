@@ -29,4 +29,9 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  # Enable nh
+  programs.nh = {
+    enable = true;
+  };
 }
