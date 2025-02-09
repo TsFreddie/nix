@@ -49,6 +49,7 @@
       discord
       qq
       wechat-uos
+      obs-studio
     ]);
 
   # basic configuration of git, please change to your own
