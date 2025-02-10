@@ -16,4 +16,8 @@
     mpv
     vial
   ];
+
+  services.udev.packages = with pkgs; [
+    vial
+  ];
 }
