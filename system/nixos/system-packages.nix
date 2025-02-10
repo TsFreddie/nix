@@ -14,5 +14,6 @@
     stable.bitwarden-cli
     gamescope
     mpv
+    vial
   ];
 }
