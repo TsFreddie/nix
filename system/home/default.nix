@@ -43,7 +43,6 @@
       # unstable packages
       bun
       nodejs_22
-      discord
     ])
     ++ (with stable; [
       # stable packages
