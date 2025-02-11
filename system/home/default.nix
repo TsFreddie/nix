@@ -43,10 +43,10 @@
       # unstable packages
       bun
       nodejs_22
+      discord
     ])
     ++ (with stable; [
       # stable packages
-      discord
       qq
       wechat-uos
       obs-studio
