@@ -50,6 +50,7 @@
       qq
       wechat-uos
       obs-studio
+      blender
     ]);
 
   # basic configuration of git, please change to your own
