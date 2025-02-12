@@ -10,11 +10,13 @@
     nixd
     nixfmt-rfc-style
     thunderbird
-    stable.bitwarden-desktop
-    stable.bitwarden-cli
     gamescope
     mpv
     vial
+
+    stable.bitwarden-desktop
+    stable.bitwarden-cli
+    stable.chromium
   ];
 
   services.udev.packages = with pkgs; [
