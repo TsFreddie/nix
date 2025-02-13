@@ -45,6 +45,7 @@
       nodejs_22
       discord
       bruno
+      pnpm
     ])
     ++ (with stable; [
       # stable packages
