@@ -44,6 +44,7 @@
       bun
       nodejs_22
       discord
+      bruno
     ])
     ++ (with stable; [
       # stable packages
