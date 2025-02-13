@@ -26,12 +26,6 @@
         { pkgs }:
         let
           overrides = (builtins.fromTOML (builtins.readFile (self + "/rust-toolchain.toml")));
-          libPath =
-            with pkgs;
-            lib.makeLibraryPath [
-              # load external libraries that you need in your rust project here
-              openssl
-            ];
         in
         {
           default = pkgs.mkShell rec {
@@ -39,13 +33,24 @@
               export name=$NID_NAME
               export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin
               export PATH=$PATH:''${RUSTUP_HOME:-~/.rustup}/toolchains/$RUSTC_VERSION-x86_64-unknown-linux-gnu/bin/
+
+              # fix tauri rendering
+              export WEBKIT_DISABLE_DMABUF_RENDERER="1"
             '';
 
-            nativeBuildInputs = [ pkgs.pkg-config ];
+            nativeBuildInputs = with pkgs; [
+              pkg-config
+            ];
             buildInputs = with pkgs; [
+              openssl
+              glib.dev
               clang
               llvmPackages.bintools
               rustup
+              gtk3
+              libsoup_3
+              webkitgtk_4_1
+              glib-networking
             ];
             RUSTC_VERSION = overrides.toolchain.channel;
 

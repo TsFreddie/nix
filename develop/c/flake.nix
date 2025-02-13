@@ -4,7 +4,7 @@
   inputs.nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
   outputs =
-    { nixpkgs }:
+    { self, nixpkgs }:
     let
       supportedSystems = [
         "x86_64-linux"
