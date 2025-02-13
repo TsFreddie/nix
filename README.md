@@ -7,7 +7,7 @@
 ### system
 
 The system will be built from this directory. After build this script will automatically commit the changes.
-You did it this way so you can rebuild first then commit to make sure every commit works without having to reset. ***DO NOT attempt to convert this to a flake repository, you already tried that.***
+You did it this way so you can rebuild first then commit to make sure every commit builds without having to reset. ***DO NOT attempt to convert this to a flake repository, you already tried that.***
 
 ### files
 

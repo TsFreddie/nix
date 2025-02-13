@@ -21,6 +21,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixpkgs-stable,
       nixos-hardware,
@@ -39,10 +40,13 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
+      var = import ./generated.nix;
       specialArgs = {
+        inherit var;
         inherit inputs;
         inherit pkgs;
         inherit stable;
+        inherit self;
         hardware = nixos-hardware.nixosModules;
       };
       modules = [

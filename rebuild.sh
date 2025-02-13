@@ -82,6 +82,14 @@ if [[ "$options_create" != "" ]]; then
     exit 0
 fi
 
+# generate nix variables
+info_echo "Generating nix variables"
+echo """
+{
+  pwd = \"$PWD\";
+}
+""" > ./system/generated.nix
+
 # diff hardware configuration
 diff /etc/nixos/hardware-configuration.nix ./system/machines/$options_hostname/hardware-configuration.nix
 status="$?"
@@ -123,6 +131,12 @@ fi
 if [[ "$options_upgrade" == true ]]; then
     info_echo "Running nix flake update"
     nix flake update --flake path:$PWD/system
+
+    # update develops
+    for develop in $(find ./develop/* -type d); do
+        info_echo "Updating develop $(basename "$develop")"
+        nix flake update --flake path:$PWD/develop/$(basename "$develop")
+    done
 
     # if not success, exit
     if [[ "$?" -ne 0 ]]; then

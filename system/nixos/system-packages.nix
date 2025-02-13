@@ -14,6 +14,10 @@
     mpv
     vial
 
+    # needed to make flatpak font works
+    xsettingsd
+    xorg.xrdb
+
     stable.bitwarden-desktop
     stable.bitwarden-cli
     stable.chromium
