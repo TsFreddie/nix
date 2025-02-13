@@ -14,9 +14,6 @@
     mpv
     vial
 
-    # dev
-    openssl
-
     # needed to make flatpak font works
     xsettingsd
     xorg.xrdb
