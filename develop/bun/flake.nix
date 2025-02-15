@@ -28,6 +28,7 @@
           default = pkgs.mkShell {
             shellHook = ''
               export name=$NID_NAME
+              export SHELL=$NID_SHELL
             '';
             packages = with pkgs; [
               bun

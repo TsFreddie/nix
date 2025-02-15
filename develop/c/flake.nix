@@ -32,7 +32,10 @@
                 stdenv = pkgs.clangStdenv;
               }
               {
-                shellHook = ''export name=$NID_NAME'';
+                shellHook = ''
+                  export name=$NID_NAME
+                  export SHELL=$NID_SHELL
+                '';
                 packages =
                   with pkgs;
                   [
