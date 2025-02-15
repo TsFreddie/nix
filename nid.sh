@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # This is a nix develop wrapper so it is easier to call any develop nix file located in the develop directory
-# e.g. `nd c` will run `nix develop path:./develop/c.nix`
+# e.g. `nd c` will run `nix develop path:./develop/c`
 
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
@@ -39,6 +39,12 @@ fi
 nid_shell=$NID_SHELL
 if [[ "$nid_shell" == "" ]]; then
     nid_shell=$SHELL
+fi
+
+# if $2 is --, then pass them as arguments -c
+if [[ "$2" == "--" ]]; then
+    NID_SHELL=$nid_shell NID_NAME=$nid_name nix develop path:$dev_path -c "${@:3}"
+    exit $?
 fi
 
 # if there is more than one name, call this script inside nix develop again
