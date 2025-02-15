@@ -1,4 +1,4 @@
-{ var, lib, ... }:
+{ var, ... }:
 
 {
   home.shellAliases = {

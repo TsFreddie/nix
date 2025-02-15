@@ -30,5 +30,9 @@
       success_symbol = "->";
       error_symbol = "->";
     };
+    nix_shell = {
+      impure_msg = "i";
+      pure_msg = "p";
+    };
   };
 }
