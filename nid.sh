@@ -17,7 +17,12 @@ if [[ "$1" == "" ]]; then
     exit 1
 fi
 
-if [[ "$1" == "create" && "$2" != "" ]]; then
+if [[ "$1" == "create" ]]; then
+    if [[ "$2" == "" ]]; then
+        echo "Usage: nid create <NAME>"
+        exit 1
+    fi
+
     create_file=$2
     # check if the develop file already exists
     if [[ -d "$script_dir/develop/$create_file" ]]; then
@@ -31,7 +36,12 @@ if [[ "$1" == "create" && "$2" != "" ]]; then
     exit 0
 fi
 
-if [[ "$1" == "setup" && "$2" != "" ]]; then
+if [[ "$1" == "setup" ]]; then
+    if [[ "$2" == "" ]]; then
+        echo "Usage: nid setup <NAME>"
+        exit 1
+    fi
+
     # check if there is already direnv files
     if [[ -d ".nid" || -f ".envrc" ]]; then
         echo "Error: direnv files already exist, please remove the following if you want to recreate one:"
