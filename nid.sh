@@ -6,18 +6,19 @@
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 if [[ "$1" == "" ]]; then
-    echo "Usage: nid [OPTIONS] <NAME> [-- <ARGS>]"
+    echo "Usage: nid [COMMANDS]"
     echo ""
     echo "Example: nid golang -- code . # run vscode in the golang develop environment"
     echo ""
-    echo "Options:"
-    echo "  --create=<NAME>   Create a develop file with the specified name"
-    echo "                    e.g. nid --create=golang"
+    echo "Commands:"
+    echo "  create <NAME>               Create a develop file with the specified name"
+    echo "  setup <NAME>                Setup a direnv in the current directory"
+    echo "  <NAME> [-- <COMMAND_ARGS>]  Launch shell or run a command in the specified develop environment"
     exit 1
 fi
 
-if [[ "$1" == "--create="* ]]; then
-    create_file=${1#*=}
+if [[ "$1" == "create" && "$2" != "" ]]; then
+    create_file=$2
     # check if the develop file already exists
     if [[ -d "$script_dir/develop/$create_file" ]]; then
         echo "Error: $script_dir/develop/$create_file already exists"
@@ -28,6 +29,25 @@ if [[ "$1" == "--create="* ]]; then
     cp -r "$script_dir/develop/empty" "$script_dir/develop/$create_file"
     echo "Created $script_dir/develop/$create_file/flake.nix"
     exit 0
+fi
+
+if [[ "$1" == "setup" && "$2" != "" ]]; then
+    # check if there is already direnv files
+    if [[ -d ".nid" || -f ".envrc" ]]; then
+        echo "Error: direnv files already exist, please remove the following if you want to recreate one:"
+        if [[ -d ".nid" ]]; then
+            echo "  .nid"
+        fi
+        if [[ -f ".envrc" ]]; then
+            echo "  .envrc"
+        fi
+        exit 1
+    fi
+
+    mkdir -p .nid
+    cp -rT "$script_dir/develop/$2" .nid
+    printf "watch_file .nid\nuse flake path:./.nid\n" > .envrc
+
 fi
 
 dev_path="$script_dir/develop/$1"

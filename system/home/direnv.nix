@@ -1,4 +1,4 @@
-{ var, ... }:
+{ ... }:
 
 {
   # enable direnv
@@ -14,12 +14,7 @@
   # globally ignore direnv files
   programs.git.ignores = [
     "*~"
-    ".niv"
+    ".nid"
     ".envrc"
   ];
-
-  # niv alias
-  home.shellAliases = {
-    niv = "${var.pwd}/niv.sh";
-  };
 }
