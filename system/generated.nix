@@ -1,0 +1,5 @@
+
+{
+  pwd = "/home/tsfreddie/nix";
+}
+

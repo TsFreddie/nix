@@ -6,9 +6,13 @@
 script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 if [[ "$1" == "" ]]; then
-    echo "Usage:"
-    echo " $0 <file> to run a develop file"
-    echo " $0 --create=<file> to create a new develop file"
+    echo "Usage: nid [OPTIONS] <NAME> [-- <ARGS>]"
+    echo ""
+    echo "Example: nid golang -- code . # run vscode in the golang develop environment"
+    echo ""
+    echo "Options:"
+    echo "  --create=<NAME>   Create a develop file with the specified name"
+    echo "                    e.g. nid --create=golang"
     exit 1
 fi
 

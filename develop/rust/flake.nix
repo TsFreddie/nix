@@ -33,24 +33,17 @@
               export name=$NID_NAME
               export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin
               export PATH=$PATH:''${RUSTUP_HOME:-~/.rustup}/toolchains/$RUSTC_VERSION-x86_64-unknown-linux-gnu/bin/
-
-              # fix tauri rendering
-              export WEBKIT_DISABLE_DMABUF_RENDERER="1"
             '';
 
             nativeBuildInputs = with pkgs; [
               pkg-config
             ];
             buildInputs = with pkgs; [
+              rustup
               openssl
               glib.dev
               clang
               llvmPackages.bintools
-              rustup
-              gtk3
-              libsoup_3
-              webkitgtk_4_1
-              glib-networking
             ];
             RUSTC_VERSION = overrides.toolchain.channel;
 

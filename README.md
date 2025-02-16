@@ -19,3 +19,22 @@ Files usually sits in the `files` directory due to at least one of the following
 - The target application actively ignores symlinks. (e.g. `fcitx5-rime`)
 
 You can easily copy any file from the home directory into the `files` directory by using the `./pin-file.sh <path>` script.
+
+### nid
+
+`nid <name>` is a wrapper around `nix develop` that makes it easier to setup a develop environment. Simply run `nid <name>` to enter a develop environment set up by the `develop/<name>/flake.nix` file.
+
+You can create a new develop environment by running `nid --create=<name>`. (This essentially duplicates the `empty` develop environment and renames it to `<name>`)
+
+Note that `nid` is able to daisy chain multiple environments, e.g. `nid rust bun -- code .` will setup a `bun` environment inside a `rust` environment then open vscode in the current directory. 
+
+### niv
+
+However, you can also use `niv <name>` to create a `.envrc` file in the current directory and copies the `develop/<name>` template to `./.niv`. This is preferred for setting up environment for a project.
+
+Note that `niv` can only setup a single environment. You should setup one environment then edit the `./.niv/flake.nix` file to update more. (Or you can just use `niv empty` to create a empty template so you can add packages yourself.)
+
+Basically, `nid` is useful if you want to run some script anywhere, and `niv` is useful for setting up a project environment.
+
+Both `nid` and `niv` treats flakes as normal files instead of git repositories. It doesn't make much sense to me to use git for these. Also .niv and .envrc are globally `.gitignore`d, so you don't have to worry about accidentally committing them. (This does mean if you want to make a nix specific file, you have to manually add the .envrc file)
+
