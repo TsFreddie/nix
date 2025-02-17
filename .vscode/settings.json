@@ -17,9 +17,6 @@
         },
         "home-manager": {
           "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.options.home-manager.users.type.getSubOptions []"
-        },
-        "plasma-manager": {
-          "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.options.services.plasma-manager.type.getSubOptions []"
         }
       }
     }

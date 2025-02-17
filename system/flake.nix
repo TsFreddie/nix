@@ -17,6 +17,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    # Rocket powered garment
+    jetbra.url = "github:Sanfrag/nix-jetbra/master";
   };
 
   outputs =
@@ -27,6 +30,7 @@
       nixos-hardware,
       home-manager,
       plasma-manager,
+      jetbra,
       ...
     }@inputs:
     let
@@ -70,7 +74,10 @@
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = specialArgs;
           home-manager.backupFileExtension = "fbkp";
-          home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+          home-manager.sharedModules = [
+            plasma-manager.homeManagerModules.plasma-manager
+            jetbra.homeManagerModules.jetbra
+          ];
 
           home-manager.users.tsfreddie = import ./home;
         }

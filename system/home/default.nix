@@ -48,6 +48,7 @@
       stable.wechat-uos
       stable.obs-studio
       stable.blender
+      stable.jetbrains.rider
     ]);
 
   # basic configuration of git, please change to your own
