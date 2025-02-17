@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  stable,
   ...
 }:
 
@@ -21,7 +20,7 @@
   # Install steam.
   programs.steam = {
     enable = true;
-    package = stable.steam;
+    package = pkgs.stable.steam;
   };
 
   # Enable gpg

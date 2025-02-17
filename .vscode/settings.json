@@ -1,23 +1,27 @@
 {
-    "editor.tabSize": 2,
-    "nix.enableLanguageServer": true,
-    "nix.formatterPath": "nixfmt",
-    "nix.serverPath": "nixd",
-    "nix.serverSettings": {
-        "nixd": {
-            "formatting": {
-                "command": [
-                    "nixfmt"
-                ]
-            },
-            "options": {
-                "nixos": {
-                    "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.type.getSubOptions []"
-                },
-                "home-manager": {
-                    "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.options.home-manager.users.type.getSubOptions []"
-                }
-            }
+  "editor.tabSize": 2,
+  "nix.enableLanguageServer": true,
+  "nix.formatterPath": "nixfmt",
+  "nix.serverPath": "nixd",
+  "nix.serverSettings": {
+    "nixd": {
+      "nixpkgs": {
+        "expr": "import <nixpkgs> { } // { stable = import <stable> { }; }"
+      },
+      "formatting": {
+        "command": ["nixfmt"]
+      },
+      "options": {
+        "nixos": {
+          "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.type.getSubOptions []"
+        },
+        "home-manager": {
+          "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.options.home-manager.users.type.getSubOptions []"
+        },
+        "plasma-manager": {
+          "expr": "(builtins.getFlake \"path:/home/tsfreddie/nix/system\").nixosConfigurations.legionix.options.services.plasma-manager.type.getSubOptions []"
         }
+      }
     }
+  }
 }

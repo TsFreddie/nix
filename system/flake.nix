@@ -31,21 +31,24 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      pkgs =
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+        // {
+          stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        };
+
       lib = nixpkgs.lib;
       var = import ./generated.nix;
       specialArgs = {
         inherit var;
         inherit inputs;
         inherit pkgs;
-        inherit stable;
         inherit self;
         hardware = nixos-hardware.nixosModules;
       };

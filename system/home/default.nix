@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  stable,
   ...
 }:
 
@@ -43,13 +42,12 @@
       # unstable packages
       discord
       bruno
-    ])
-    ++ (with stable; [
+
       # stable packages
-      qq
-      wechat-uos
-      obs-studio
-      blender
+      stable.qq
+      stable.wechat-uos
+      stable.obs-studio
+      stable.blender
     ]);
 
   # basic configuration of git, please change to your own
