@@ -41,7 +41,6 @@
     ++ (with pkgs; [
       # unstable packages
       discord
-      bruno
 
       # stable packages
       stable.qq
@@ -49,6 +48,8 @@
       stable.obs-studio
       stable.blender
       stable.jetbrains.rider
+      stable.krita
+      stable.insomnia
     ]);
 
   # basic configuration of git, please change to your own
