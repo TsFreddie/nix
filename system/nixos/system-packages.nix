@@ -6,7 +6,6 @@
     vim
     wget
     vscode
-    kdePackages.partitionmanager
     nixd
     nixfmt-rfc-style
     thunderbird
@@ -17,6 +16,9 @@
     # needed to make flatpak font works
     xsettingsd
     xorg.xrdb
+
+    kdePackages.partitionmanager
+    kdePackages.kcalc
 
     stable.bitwarden-desktop
     stable.bitwarden-cli
