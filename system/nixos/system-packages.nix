@@ -33,7 +33,6 @@
     kdePackages.kruler
     kdePackages.kleopatra
     kdePackages.ktorrent
-    kdePackages.kget
     kdePackages.lokalize
     kdePackages.kclock
     kdePackages.kmail
