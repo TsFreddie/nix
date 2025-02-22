@@ -29,16 +29,6 @@
   #     xxx
   # '';
 
-  # fix breeze cursor size
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        cursor-size = 32;
-      };
-    };
-  };
-
   # packages
   home.packages = with pkgs; [
     # unstable packages
