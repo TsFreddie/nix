@@ -20,7 +20,6 @@
     kdePackages.partitionmanager
     kdePackages.kdenlive
     kdePackages.filelight
-    kdePackages.kolourpaint
     kdePackages.kfind
     kdePackages.kcolorchooser
     kdePackages.kcolorpicker
@@ -38,8 +37,6 @@
     kdePackages.kmail
     kdePackages.kontact
     kdePackages.merkuro
-
-    kdePackages.audiotube
 
     qalculate-qt
 
