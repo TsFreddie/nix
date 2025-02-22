@@ -40,6 +40,8 @@
 
     qalculate-qt
 
+    ghostty
+
     stable.bitwarden-desktop
     stable.bitwarden-cli
     stable.chromium
