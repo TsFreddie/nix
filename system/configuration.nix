@@ -4,7 +4,7 @@
 
 # Lenovo Legion R9000K 2021
 
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Bootloader.
@@ -50,7 +50,16 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+  };
+
+  programs.dconf.enable = true;
+
   programs.kdeconnect.enable = true;
 
   # Configure keymap in X11
