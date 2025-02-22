@@ -4,7 +4,7 @@
 
 # Lenovo Legion R9000K 2021
 
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Bootloader.
@@ -58,7 +58,20 @@
     extraPortals = [ pkgs.xdg-desktop-portal-kde ];
   };
 
-  programs.dconf.enable = true;
+  programs.dconf = {
+    enable = true;
+    profiles = with lib.gvariant; {
+      user.databases = [
+        {
+          settings = {
+            "org/gnome/desktop/interface" = {
+              cursor-size = mkUint32 32;
+            };
+          };
+        }
+      ];
+    };
+  };
 
   programs.kdeconnect.enable = true;
 
