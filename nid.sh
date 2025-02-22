@@ -56,8 +56,16 @@ if [[ "$1" == "setup" ]]; then
 
     mkdir -p .nid
     cp -rT "$script_dir/develop/$2" .nid
+    if [[ "$?" != "0" ]]; then
+        echo "Error: failed to copy $script_dir/develop/$2 to .nid"
+        exit 1
+    fi
     printf "watch_file .nid\nuse flake path:./.nid\n" > .envrc
-
+    if [[ "$?" != "0" ]]; then
+        echo "Error: failed to create .envrc"
+        exit 1
+    fi
+    exit 0
 fi
 
 dev_path="$script_dir/develop/$1"
