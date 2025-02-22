@@ -48,7 +48,6 @@
     stable.jetbrains.rider
     stable.krita
     stable.insomnia
-    stable.beeper
   ];
 
   # basic configuration of git, please change to your own
