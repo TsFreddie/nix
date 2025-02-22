@@ -43,3 +43,6 @@
 # resize-overlay-duration = 4s 200ms
 
 window-decoration = server
+window-titlebar-background = #31363b
+window-theme = ghostty
+gtk-wide-tabs = false

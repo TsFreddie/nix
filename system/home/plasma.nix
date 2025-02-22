@@ -1,59 +1,69 @@
 { ... }:
 
 {
-  # enable fcitx5
-  programs.plasma.enable = true;
-  programs.plasma.configFile = {
-    "kwinrc"."Wayland"."InputMethod" = {
-      value = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
-      shellExpand = true;
+  programs.plasma = {
+    # enable fcitx5
+    enable = true;
+    configFile = {
+      "kwinrc"."Wayland"."InputMethod" = {
+        value = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
+        shellExpand = true;
+      };
+    };
+
+    # colemak
+    input.keyboard.layouts = [
+      {
+        layout = "us";
+        variant = "colemak";
+      }
+    ];
+
+    # theme
+    workspace.theme = "breeze-dark";
+
+    # fonts
+    fonts =
+      let
+        regular = {
+          family = "Noto Sans CJK SC";
+          weight = "normal";
+          pointSize = 10;
+        };
+        mono = {
+          family = "Noto Sans Mono";
+          weight = "normal";
+          pointSize = 10;
+        };
+      in
+      {
+        general = regular;
+        fixedWidth = mono;
+        small = {
+          inherit (regular) family weight;
+          pointSize = 8;
+        };
+        toolbar = regular;
+        menu = regular;
+        windowTitle = regular;
+      };
+
+    # shortcuts
+    shortcuts = {
+      "services/com.mitchellh.ghostty.desktop"."_launch" = "Ctrl+Alt+T";
+      "services/org.kde.konsole.desktop"."_launch" = [ ];
     };
   };
-
-  # colemak
-  programs.plasma.input.keyboard.layouts = [
-    {
-      layout = "us";
-      variant = "colemak";
-    }
-  ];
-
-  # theme
-  programs.plasma.workspace.theme = "breeze-dark";
-
-  # fonts
-  programs.plasma.fonts =
-    let
-      regular = {
-        family = "Noto Sans CJK SC";
-        weight = "normal";
-        pointSize = 10;
-      };
-      mono = {
-        family = "Noto Sans Mono";
-        weight = "normal";
-        pointSize = 10;
-      };
-    in
-    {
-      general = regular;
-      fixedWidth = mono;
-      small = {
-        inherit (regular) family weight;
-        pointSize = 8;
-      };
-      toolbar = regular;
-      menu = regular;
-      windowTitle = regular;
-    };
 
   # konsole
-  programs.konsole.enable = true;
-  programs.konsole.profiles = {
-    nix = {
-      font.name = "FiraCode Nerd Font Mono";
-      font.size = 12;
+  programs.konsole = {
+    enable = true;
+    profiles = {
+      nix = {
+        font.name = "FiraCode Nerd Font Mono";
+        font.size = 12;
+      };
     };
+    defaultProfile = "nix";
   };
-  programs.konsole.defaultProfile = "nix";
 }
