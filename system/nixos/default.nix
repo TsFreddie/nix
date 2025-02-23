@@ -12,7 +12,10 @@
   );
 
   # Substituters
-  nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" "https://cache.nixos.org/" ];
+  nix.settings.substituters = [
+    "https://mirrors.ustc.edu.cn/nix-channels/store"
+    "https://cache.nixos.org/"
+  ];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;
@@ -20,7 +23,6 @@
   # Install steam.
   programs.steam = {
     enable = true;
-    package = pkgs.stable.steam;
   };
 
   # Enable gpg
