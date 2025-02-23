@@ -10,10 +10,9 @@
     nixfmt-rfc-style
     thunderbird
     gamescope
-    mpv
+    mpv 
     vial
 
-    # needed to make flatpak font works
     xsettingsd
     xorg.xrdb
 

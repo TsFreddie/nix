@@ -14,8 +14,8 @@ in
     };
 
     # ghostty config
-    ".config/ghostty/config" = {
-      source = mkLink "${cfg}/ghostty/config";
+    ".config/ghostty" = {
+      source = mkLink "${cfg}/ghostty";
     };
   };
 }

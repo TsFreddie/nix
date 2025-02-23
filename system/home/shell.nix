@@ -6,11 +6,21 @@
   programs.zsh.autosuggestion.enable = true;
 
   # zoxide
-  programs.zoxide.enable = true;
-  programs.zoxide.enableZshIntegration = true;
-  programs.zoxide.enableBashIntegration = true;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
+
   home.shellAliases = {
     cd = "z";
+  };
+
+  # fzf
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
   };
 
   # starship
