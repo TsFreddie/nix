@@ -31,9 +31,6 @@
 
   # packages
   home.packages = with pkgs; [
-    # unstable packages
-    discord
-
     # stable packages
     stable.qq
     stable.wechat-uos
@@ -42,6 +39,8 @@
     stable.jetbrains.rider
     stable.krita
     stable.insomnia
+    stable.anytype
+    stable.discord
   ];
 
   # basic configuration of git, please change to your own
