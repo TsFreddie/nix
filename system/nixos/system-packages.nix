@@ -12,6 +12,7 @@
     gamescope
     mpv 
     vial
+    btop-rocm
 
     xsettingsd
     xorg.xrdb
