@@ -41,6 +41,7 @@
     stable.insomnia
     stable.anytype
     stable.discord
+    stable.inkscape
   ];
 
   # basic configuration of git, please change to your own
