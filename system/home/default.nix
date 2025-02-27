@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  var,
   ...
 }:
 
@@ -11,8 +12,8 @@
     ) ./.
   );
 
-  home.username = "tsfreddie";
-  home.homeDirectory = "/home/tsfreddie";
+  home.username = var.username;
+  home.homeDirectory = "/home/${var.username}";
 
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;

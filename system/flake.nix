@@ -46,9 +46,9 @@
             config.allowUnfree = true;
           };
         };
-
       lib = nixpkgs.lib;
-      var = import ./generated.nix;
+      generated = import ./generated.nix;
+      var = import ./var.nix // generated;
       specialArgs = {
         inherit var;
         inherit inputs;
@@ -79,7 +79,7 @@
             jetbra.homeManagerModules.jetbra
           ];
 
-          home-manager.users.tsfreddie = import ./home;
+          home-manager.users.${var.username} = import ./home;
         }
       ];
     in

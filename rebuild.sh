@@ -174,4 +174,4 @@ success_echo "Current generation: $system_gen"
 # commit changes
 info_echo "Committing changes"
 git add .
-git -c user.name="TsFreddie NixOS" -c user.email="whatis+nix@tsdo.in" -c commit.gpgsign=false commit -m "system generation $system_gen"
+git -c user.name="NixOS Generation" -c user.email="no-valid@nixos.com" -c commit.gpgsign=false commit -m "system generation $system_gen"

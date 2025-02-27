@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, var, ... }:
 
 {
   # default shell
   programs.zsh.enable = true;
-  users.users.tsfreddie.shell = pkgs.zsh;
+  users.users.${var.username}.shell = pkgs.zsh;
 }

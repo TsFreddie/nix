@@ -4,7 +4,7 @@
 
 # Lenovo Legion R9000K 2021
 
-{ pkgs, lib, ... }:
+{ pkgs, var, lib, ... }:
 
 {
   # Bootloader.
@@ -89,7 +89,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tsfreddie = {
+  users.users.${var.username} = {
     isNormalUser = true;
     description = "Freddie W";
     extraGroups = [
