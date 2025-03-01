@@ -154,24 +154,30 @@ if [[ "$options_files_only" == true ]]; then
     exit 0
 fi
 
+build_success=0
+
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
 if [[ -n "$options_hostname" ]]; then
     if [[ "$options_dry" == true ]]; then
         nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname --dry
+        build_success=$?
     else
         nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname
+        build_success=$?
     fi
 else
     if [[ "$options_dry" == true ]]; then
         nix run nixpkgs#nh -- os switch path:$PWD/system --dry
+        build_success=$?
     else
         nix run nixpkgs#nh -- os switch path:$PWD/system
+        build_success=$?
     fi
 fi
 
 # if not success, exit
-if [[ "$?" -ne 0 ]]; then
+if [[ "$build_success" -ne 0 ]]; then
     exit $?
 fi
 
