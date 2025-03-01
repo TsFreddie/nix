@@ -24,7 +24,6 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-stable,
       nixos-hardware,
@@ -53,7 +52,6 @@
         inherit var;
         inherit inputs;
         inherit pkgs;
-        inherit self;
         hardware = nixos-hardware.nixosModules;
       };
       modules = [

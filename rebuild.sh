@@ -11,7 +11,7 @@ info_echo() { echo -e "${INFO_COLOR}$1${NC}"; }
 success_echo() { echo -e "${SUCCESS_COLOR}$1${NC}"; }
 warning_echo() { echo -e "${WARNING_COLOR}$1${NC}"; }
 
-options_dry_run=false
+options_dry=false
 options_upgrade=false
 options_files_only=false
 options_hostname=$(hostname)
@@ -23,9 +23,9 @@ for i in "$@"; do
         --hostname=*)
             options_hostname="${i#*=}"
             ;;
-        --dry-run)
+        --dry)
             # does not build or commit
-            options_dry_run=true
+            options_dry=true
             ;;
         --upgrade)
             # upgrade runs nix flake update first
@@ -114,7 +114,6 @@ fi
 channel_leftovers=(
 /root/.nix-defexpr/channels
 /nix/var/nix/profiles/per-user/root/channels
-/home/tsfreddie/nix/test.t
 )
 for channel_leftover in "${channel_leftovers[@]}"; do
     if [[ -d "$channel_leftover" ]]; then
@@ -158,17 +157,22 @@ fi
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
 if [[ -n "$options_hostname" ]]; then
-    if [[ -n "$options_dry_run" ]]; then
+    if [[ "$options_dry" == true ]]; then
         nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname --dry
     else
         nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname
     fi
 else
-    if [[ -n "$options_dry_run" ]]; then
+    if [[ "$options_dry" == true ]]; then
         nix run nixpkgs#nh -- os switch path:$PWD/system --dry
     else
         nix run nixpkgs#nh -- os switch path:$PWD/system
     fi
+fi
+
+# if --dry is set, exit
+if [[ "$options_dry" == true ]]; then
+    exit 0
 fi
 
 # if not success, exit
