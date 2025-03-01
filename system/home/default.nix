@@ -43,6 +43,8 @@
     stable.anytype
     stable.discord
     stable.inkscape
+
+    (callPackage ../packages/zen.nix { })
   ];
 
   # basic configuration of git, please change to your own
