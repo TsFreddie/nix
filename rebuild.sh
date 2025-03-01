@@ -170,14 +170,14 @@ else
     fi
 fi
 
-# if --dry is set, exit
-if [[ "$options_dry" == true ]]; then
-    exit 0
-fi
-
 # if not success, exit
 if [[ "$?" -ne 0 ]]; then
     exit $?
+fi
+
+# if --dry is set, exit
+if [[ "$options_dry" == true ]]; then
+    exit 0
 fi
 
 # find the current system generation
