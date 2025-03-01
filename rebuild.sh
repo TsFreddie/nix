@@ -114,18 +114,19 @@ fi
 channel_leftovers=(
 /root/.nix-defexpr/channels
 /nix/var/nix/profiles/per-user/root/channels
+/home/tsfreddie/nix/test.t
 )
 for channel_leftover in "${channel_leftovers[@]}"; do
-if [[ -d "$channel_leftover" ]]; then
-    info_echo "removing ${channel_leftover}"
-    rm -rf "$channel_leftover"
-fi
-done
+    if [[ -d "$channel_leftover" ]]; then
+        info_echo "removing ${channel_leftover}"
+        sudo rm -rf "$channel_leftover"
+    fi
 
-# if --dry-run is set, exit
-if [[ "$options_dry_run" == true ]]; then
-    exit 0
-fi
+    if [[ -f "$channel_leftover" ]]; then
+        info_echo "removing ${channel_leftover}"
+        sudo rm -f "$channel_leftover"
+    fi
+done
 
 # if --upgrade is set, run nix flake update first
 if [[ "$options_upgrade" == true ]]; then
@@ -157,9 +158,17 @@ fi
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
 if [[ -n "$options_hostname" ]]; then
-    nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname
+    if [[ -n "$options_dry_run" ]]; then
+        nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname --dry
+    else
+        nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname
+    fi
 else
-    nix run nixpkgs#nh -- os switch path:$PWD/system
+    if [[ -n "$options_dry_run" ]]; then
+        nix run nixpkgs#nh -- os switch path:$PWD/system --dry
+    else
+        nix run nixpkgs#nh -- os switch path:$PWD/system
+    fi
 fi
 
 # if not success, exit
