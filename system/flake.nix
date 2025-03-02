@@ -46,7 +46,7 @@
                 src = pkgs.fetchFromGitHub {
                   owner = "sezanzeb";
                   repo = "input-remapper";
-                  rev = version;
+                  rev = "2.1.1";
                   hash = "sha256-rwlVGF/cWSv6Bsvhrs6nMDQ8avYT80aasrhWyQv55/A=";
                 };
               });
