@@ -38,20 +38,6 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [
-            (final: prev: {
-              input-remapper = prev.input-remapper.overrideAttrs (old: rec {
-                version = "2.1.1";
-
-                src = pkgs.fetchFromGitHub {
-                  owner = "sezanzeb";
-                  repo = "input-remapper";
-                  rev = "2.1.1";
-                  hash = "sha256-rwlVGF/cWSv6Bsvhrs6nMDQ8avYT80aasrhWyQv55/A=";
-                };
-              });
-            })
-          ];
         }
         // {
           stable = import nixpkgs-stable {
