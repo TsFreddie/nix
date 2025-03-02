@@ -58,42 +58,58 @@
     {
       nixosConfigurations = builtins.listToAttrs (
         builtins.map
-          (path: {
-            name = builtins.baseNameOf (builtins.dirOf (toString path));
-            value = lib.nixosSystem {
-              inherit specialArgs;
-              modules =
-                [
-                  {
-                    imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
-                    nixpkgs.pkgs = pkgs;
-                  }
+          (
+            path:
+            let
+              hostname = builtins.baseNameOf (builtins.dirOf (toString path));
+            in
+            {
+              name = hostname;
+              value = lib.nixosSystem {
+                inherit specialArgs;
+                modules =
+                  [
+                    {
+                      imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
+                      nixpkgs.pkgs = pkgs;
+                    }
 
-                  ./configuration.nix
-                  ./nixos
-                  ./var/no-nix-channel.nix
+                    ./configuration.nix
+                    ./nixos
+                    ./var/no-nix-channel.nix
 
-                  # make home-manager as a module of nixos
-                  # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-                  home-manager.nixosModules.home-manager
-                  {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.extraSpecialArgs = specialArgs;
-                    home-manager.backupFileExtension = "fbkp";
-                    home-manager.sharedModules = [
-                      plasma-manager.homeManagerModules.plasma-manager
-                      jetbra.homeManagerModules.jetbra
-                    ];
+                    # make home-manager as a module of nixos
+                    # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+                    home-manager.nixosModules.home-manager
+                    {
+                      home-manager.useGlobalPkgs = true;
+                      home-manager.useUserPackages = true;
+                      home-manager.extraSpecialArgs = specialArgs // {
+                        inherit hostname;
+                      };
+                      home-manager.backupFileExtension = "fbkp";
+                      home-manager.sharedModules = [
+                        plasma-manager.homeManagerModules.plasma-manager
+                        jetbra.homeManagerModules.jetbra
+                      ];
 
-                    home-manager.users.${var.username} = import ./home;
-                  }
-                ]
-                ++ [
-                  path
-                ];
-            };
-          })
+                      home-manager.users.${var.username} = {
+                        imports =
+                          [
+                            ./home
+                          ]
+                          ++ lib.optionals (lib.pathExists "${var.pwd}/machines/${hostname}/home.nix") [
+                            ./machines/${hostname}/home.nix
+                          ];
+                      };
+                    }
+                  ]
+                  ++ [
+                    path
+                  ];
+              };
+            }
+          )
           (
             lib.fileset.toList (
               lib.fileset.fileFilter (file: file.type == "regular" && file.name == "default.nix") ./machines
