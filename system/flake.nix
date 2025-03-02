@@ -84,9 +84,7 @@
                     {
                       home-manager.useGlobalPkgs = true;
                       home-manager.useUserPackages = true;
-                      home-manager.extraSpecialArgs = specialArgs // {
-                        inherit hostname;
-                      };
+                      home-manager.extraSpecialArgs = specialArgs;
                       home-manager.backupFileExtension = "fbkp";
                       home-manager.sharedModules = [
                         plasma-manager.homeManagerModules.plasma-manager
