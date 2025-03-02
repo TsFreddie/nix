@@ -43,6 +43,7 @@
     stable.anytype
     stable.discord
     stable.inkscape
+    stable.tetrio-desktop
   ];
 
   # basic configuration of git, please change to your own
