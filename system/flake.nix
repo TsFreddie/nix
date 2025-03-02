@@ -54,32 +54,6 @@
         inherit pkgs;
         hardware = nixos-hardware.nixosModules;
       };
-      modules = [
-        {
-          imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
-          nixpkgs.pkgs = pkgs;
-        }
-
-        ./configuration.nix
-        ./nixos
-        ./var/no-nix-channel.nix
-
-        # make home-manager as a module of nixos
-        # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = specialArgs;
-          home-manager.backupFileExtension = "fbkp";
-          home-manager.sharedModules = [
-            plasma-manager.homeManagerModules.plasma-manager
-            jetbra.homeManagerModules.jetbra
-          ];
-
-          home-manager.users.${var.username} = import ./home;
-        }
-      ];
     in
     {
       nixosConfigurations = builtins.listToAttrs (
@@ -88,9 +62,36 @@
             name = builtins.baseNameOf (builtins.dirOf (toString path));
             value = lib.nixosSystem {
               inherit specialArgs;
-              modules = modules ++ [
-                path
-              ];
+              modules =
+                [
+                  {
+                    imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
+                    nixpkgs.pkgs = pkgs;
+                  }
+
+                  ./configuration.nix
+                  ./nixos
+                  ./var/no-nix-channel.nix
+
+                  # make home-manager as a module of nixos
+                  # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+                  home-manager.nixosModules.home-manager
+                  {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.extraSpecialArgs = specialArgs;
+                    home-manager.backupFileExtension = "fbkp";
+                    home-manager.sharedModules = [
+                      plasma-manager.homeManagerModules.plasma-manager
+                      jetbra.homeManagerModules.jetbra
+                    ];
+
+                    home-manager.users.${var.username} = import ./home;
+                  }
+                ]
+                ++ [
+                  path
+                ];
             };
           })
           (
