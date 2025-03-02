@@ -96,7 +96,7 @@
                           [
                             ./home
                           ]
-                          ++ lib.optionals (lib.pathExists "${var.pwd}/machines/${hostname}/home.nix") [
+                          ++ lib.optionals (lib.pathExists ./machines/${hostname}/home.nix) [
                             ./machines/${hostname}/home.nix
                           ];
                       };
