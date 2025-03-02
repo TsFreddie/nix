@@ -44,8 +44,6 @@
     stable.discord
     stable.inkscape
     stable.tetrio-desktop
-
-    input-remapper
   ];
 
   # basic configuration of git, please change to your own

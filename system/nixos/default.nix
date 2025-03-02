@@ -46,4 +46,7 @@
       flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub
     '';
   };
+
+  # Enable input remapper
+  services.input-remapper.enable = true;
 }
