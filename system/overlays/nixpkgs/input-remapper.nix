@@ -1,4 +1,10 @@
-final: prev: {
+{ inputs, system }:
+
+final: prev:
+let
+  pkgs = import inputs.nixpkgs { inherit system; };
+in
+{
   input-remapper = prev.input-remapper.overrideAttrs (old: {
     version = "2.1.1";
     src = prev.fetchFromGitHub {
@@ -13,6 +19,15 @@ final: prev: {
         hash = "sha256-JdKLzSzp7IsF1BOT1UOytei9dNN7/x/7B3LGo+RKwwM=";
       })
     ];
+
+    pythonImportsCheck = old.pythonImportsCheck ++ [
+      "psutil"
+    ];
+
+    propagatedBuildInputs = old.propagatedBuildInputs ++ [
+      pkgs.python3Packages.psutil
+    ];
+
     postInstall = ''
       substituteInPlace data/99-input-remapper.rules \
         --replace-fail 'RUN+="/bin/input-remapper-control' "RUN+=\"$out/bin/input-remapper-control"

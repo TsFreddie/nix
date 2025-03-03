@@ -38,17 +38,35 @@
         import nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = lib.lists.forEach (lib.fileset.toList (
-            lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/nixpkgs
-          )) (file: import file);
+          overlays =
+            lib.lists.forEach
+              (lib.fileset.toList (
+                lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/nixpkgs
+              ))
+              (
+                file:
+                import file {
+                  inherit inputs;
+                  inherit system;
+                }
+              );
         }
         // {
           stable = import nixpkgs-stable {
             inherit system;
             config.allowUnfree = true;
-            overlays = lib.lists.forEach (lib.fileset.toList (
-              lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/stable
-            )) (file: import file);
+            overlays =
+              lib.lists.forEach
+                (lib.fileset.toList (
+                  lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/stable
+                ))
+                (
+                  file:
+                  import file {
+                    inherit inputs;
+                    inherit system;
+                  }
+                );
           };
         };
       lib = nixpkgs.lib;
