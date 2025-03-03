@@ -11,6 +11,7 @@ info_echo() { echo -e "${INFO_COLOR}$1${NC}"; }
 success_echo() { echo -e "${SUCCESS_COLOR}$1${NC}"; }
 warning_echo() { echo -e "${WARNING_COLOR}$1${NC}"; }
 
+options_test=false
 options_dry=false
 options_upgrade=false
 options_files_only=false
@@ -22,6 +23,10 @@ for i in "$@"; do
     case $i in
         --hostname=*)
             options_hostname="${i#*=}"
+            ;;
+        --test)
+            # does not create new generation nor commit
+            options_test=true
             ;;
         --dry)
             # does not build or commit
@@ -155,23 +160,28 @@ if [[ "$options_files_only" == true ]]; then
 fi
 
 build_success=0
+subcommand=switch
+
+if [[ "$options_test" == true ]]; then
+    subcommand=test
+fi
 
 # run nixos-rebuild
 info_echo "Running nixos-rebuild"
 if [[ -n "$options_hostname" ]]; then
     if [[ "$options_dry" == true ]]; then
-        nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname --dry
+        nix run nixpkgs#nh -- os $subcommand path:$PWD/system --hostname $options_hostname --dry
         build_success=$?
     else
-        nix run nixpkgs#nh -- os switch path:$PWD/system --hostname $options_hostname
+        nix run nixpkgs#nh -- os $subcommand path:$PWD/system --hostname $options_hostname
         build_success=$?
     fi
 else
     if [[ "$options_dry" == true ]]; then
-        nix run nixpkgs#nh -- os switch path:$PWD/system --dry
+        nix run nixpkgs#nh -- os $subcommand path:$PWD/system --dry
         build_success=$?
     else
-        nix run nixpkgs#nh -- os switch path:$PWD/system
+        nix run nixpkgs#nh -- os $subcommand path:$PWD/system
         build_success=$?
     fi
 fi
@@ -186,6 +196,11 @@ if [[ "$options_dry" == true ]]; then
     exit 0
 fi
 
+# if --test is set, exit
+if [[ "$options_test" == true ]]; then
+    exit 0
+fi
+
 # find the current system generation
 system_gen=$(sudo nix-env --list-generations --profile /nix/var/nix/profiles/system | awk '/\(current\)/ {print $1}')
 success_echo "Current generation: $system_gen"
@@ -193,4 +208,4 @@ success_echo "Current generation: $system_gen"
 # commit changes
 info_echo "Committing changes"
 git add .
-git -c user.name="NixOS Generation" -c user.email="no-valid@nixos.com" -c commit.gpgsign=false commit -m "system generation $system_gen"
+git -c user.name="NixOS Generation" -c user.email="not-valid@nixos.com" -c commit.gpgsign=false commit -m "system generation $system_gen"
