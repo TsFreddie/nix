@@ -9,6 +9,8 @@
         value = "/run/current-system/sw/share/applications/org.fcitx.Fcitx5.desktop";
         shellExpand = true;
       };
+      # enable wobbly windows
+      "kwinrc"."Plugins"."wobblywindowsEnabled" = true;
     };
 
     # colemak
