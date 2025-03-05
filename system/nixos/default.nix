@@ -43,7 +43,7 @@
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
     script = ''
-      flatpak remote-add --if-not-exists flathub https://mirror.sjtu.edu.cn/flathub
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
 
