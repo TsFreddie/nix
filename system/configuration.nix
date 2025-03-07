@@ -54,7 +54,7 @@
   services.desktopManager.plasma6.enable = true;
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
+    xdgOpenUsePortal = false;
     extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
   };
 
