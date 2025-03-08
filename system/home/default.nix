@@ -33,8 +33,6 @@
   # packages
   home.packages = with pkgs; [
     # stable packages
-    stable.qq
-    stable.wechat-uos
     stable.obs-studio
     stable.blender
     stable.jetbrains.rider
@@ -44,6 +42,7 @@
     stable.discord
     stable.inkscape
     stable.tetrio-desktop
+    stable.pinit
   ];
 
   # basic configuration of git, please change to your own
