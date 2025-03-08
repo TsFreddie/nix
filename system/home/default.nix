@@ -42,7 +42,6 @@
     stable.discord
     stable.inkscape
     stable.tetrio-desktop
-    stable.pinit
   ];
 
   # basic configuration of git, please change to your own
