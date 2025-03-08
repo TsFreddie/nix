@@ -41,6 +41,7 @@
     qalculate-qt
 
     ghostty
+    gearlever
 
     stable.bitwarden-desktop
     stable.bitwarden-cli
