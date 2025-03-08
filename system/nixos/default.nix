@@ -47,6 +47,12 @@
     '';
   };
 
+  # Enable AppImages
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Enable input remapper
   services.input-remapper = {
     enable = true;
