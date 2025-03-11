@@ -45,6 +45,9 @@
       ghostty
       gearlever
 
+      p7zip
+      unrar
+
       stable.bitwarden-desktop
       stable.bitwarden-cli
       stable.chromium
