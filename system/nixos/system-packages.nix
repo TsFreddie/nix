@@ -53,7 +53,7 @@
       stable.bitwarden-cli
       stable.chromium
 
-      qt6.qttools
+      qt5.qttools
     ]
     ++ [
       # fixes gnome/gtk stuff
