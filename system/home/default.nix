@@ -39,9 +39,13 @@
     stable.krita
     stable.insomnia
     stable.anytype
-    stable.discord
     stable.inkscape
     stable.tetrio-desktop
+
+    (discord.override {
+      # withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
   ];
 
   # basic configuration of git, please change to your own
