@@ -39,6 +39,7 @@
       kdePackages.kmail
       kdePackages.kontact
       kdePackages.merkuro
+      kdePackages.kdepim-addons
 
       qalculate-qt
 
@@ -61,4 +62,11 @@
   services.udev.packages = with pkgs; [
     vial
   ];
+
+  programs.kde-pim = {
+    enable = true;
+    kmail = true;
+    kontact = true;
+    merkuro = true;
+  };
 }
