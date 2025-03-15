@@ -35,7 +35,6 @@
     # stable packages
     stable.obs-studio
     stable.blender
-    stable.jetbrains.rider
     stable.krita
     stable.insomnia
     stable.anytype
@@ -49,6 +48,8 @@
 
     godot_4_4-mono
     godot_4_4-export-templates
+
+    jetbrains.rider
   ];
 
   # basic configuration of git, please change to your own
