@@ -46,6 +46,9 @@
       # withOpenASAR = true; # can do this here too
       withVencord = true;
     })
+
+    godot_4_4-mono
+    godot_4_4-export-templates
   ];
 
   # basic configuration of git, please change to your own
