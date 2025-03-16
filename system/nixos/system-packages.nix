@@ -54,6 +54,7 @@
       stable.chromium
 
       qt5.qttools
+      qpwgraph
     ]
     ++ [
       # fixes gnome/gtk stuff

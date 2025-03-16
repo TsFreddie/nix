@@ -47,7 +47,6 @@
     })
 
     godot_4_4-mono
-    godot_4_4-export-templates
 
     jetbrains.rider
   ];
