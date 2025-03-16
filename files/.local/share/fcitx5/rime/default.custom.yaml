@@ -7,3 +7,4 @@ patch:
     - "Control+F4"
 
   "menu/page_size": 5
+  "menu/alternative_select_labels": ["\u200B","\u200B","\u200B","\u200B","\u200B","\u200B","\u200B","\u200B","\u200B"]
