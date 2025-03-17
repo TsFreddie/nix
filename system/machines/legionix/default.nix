@@ -1,13 +1,13 @@
 # Lenovo Legion R9000K 2021
 # This is nvidia config. Not a hybrid config.
 
-{ config, hardware, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    hardware.lenovo-legion-16achg6-nvidia
+    inputs.nixos-hardware.nixosModules.lenovo-legion-16achg6-nvidia
   ];
 
   # hostname

@@ -6,10 +6,8 @@
   nix.registry = {
     # make `nix run nixpkgs#nixpkgs` use the same nixpkgs as the one used by this flake.
     nixpkgs.flake = inputs.nixpkgs;
-    # make `nix run nixpkgs#stable` use the stable nixpkgs as the one used by this flake.
+    # make `nix run stable#nixpkgs` use the stable nixpkgs as the one used by this flake.
     stable.flake = inputs.nixpkgs-stable;
-    # allow `nix run home-manager` to directly reference home-manager
-    home-manager.flake = inputs.home-manager;
   };
 
   nix.channel.enable = false; # remove nix-channel related tools & configs, use flakes exclusively.

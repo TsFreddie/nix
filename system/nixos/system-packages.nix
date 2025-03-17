@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   environment.systemPackages =
@@ -55,6 +55,8 @@
 
       qt5.qttools
       qpwgraph
+
+      zen-browser.default
     ]
     ++ [
       # fixes gnome/gtk stuff

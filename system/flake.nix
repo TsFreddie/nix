@@ -2,6 +2,7 @@
   description = "TsFreddie's NixOS Configuration";
   inputs = {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs?ref=nixos-24.11";
 
@@ -20,13 +21,17 @@
 
     # Rocket powered garment
     jetbra.url = "github:Sanfrag/nix-jetbra/master";
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       nixpkgs-stable,
-      nixos-hardware,
       home-manager,
       plasma-manager,
       jetbra,
@@ -34,6 +39,24 @@
     }@inputs:
     let
       system = "x86_64-linux";
+
+      stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+        overlays =
+          lib.lists.forEach
+            (lib.fileset.toList (
+              lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/stable
+            ))
+            (
+              file:
+              import file {
+                inherit inputs;
+                inherit system;
+              }
+            );
+      };
+
       pkgs =
         import nixpkgs {
           inherit system;
@@ -52,23 +75,10 @@
               );
         }
         // {
-          stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-            overlays =
-              lib.lists.forEach
-                (lib.fileset.toList (
-                  lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/stable
-                ))
-                (
-                  file:
-                  import file {
-                    inherit inputs;
-                    inherit system;
-                  }
-                );
-          };
+          inherit stable;
+          zen-browser = inputs.zen-browser.packages.${system};
         };
+
       lib = nixpkgs.lib;
       generated = import ./generated.nix;
       var = import ./var.nix // generated;
@@ -76,7 +86,7 @@
         inherit var;
         inherit inputs;
         inherit pkgs;
-        hardware = nixos-hardware.nixosModules;
+        inherit stable;
       };
     in
     {

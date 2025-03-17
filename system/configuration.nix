@@ -101,9 +101,6 @@
   # Install firefox.
   programs.firefox.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
