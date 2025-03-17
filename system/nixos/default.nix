@@ -58,4 +58,10 @@
     enable = true;
     enableUdevRules = true;
   };
+
+  # Enable opengl
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
 }
