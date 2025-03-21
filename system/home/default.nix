@@ -49,6 +49,9 @@
     godot_4_4-mono
 
     jetbrains.rider
+
+    beans.pbean
+    beans.vbean
   ];
 
   # basic configuration of git, please change to your own

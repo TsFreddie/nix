@@ -26,6 +26,11 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    beans = {
+      url = "github:Sanfrag/beans/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -77,6 +82,7 @@
         // {
           inherit stable;
           zen-browser = inputs.zen-browser.packages.${system};
+          beans = inputs.beans.packages;
         };
 
       lib = nixpkgs.lib;

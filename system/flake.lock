@@ -1,5 +1,26 @@
 {
   "nodes": {
+    "beans": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1742571942,
+        "narHash": "sha256-aNK8zUtwKCiCI24LKWHhvUnxE8WnfZdlM22yXASvNBM=",
+        "owner": "Sanfrag",
+        "repo": "beans",
+        "rev": "97257ae358bb1560bb420e3ea09923d3d84c1116",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Sanfrag",
+        "ref": "master",
+        "repo": "beans",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -109,6 +130,7 @@
     },
     "root": {
       "inputs": {
+        "beans": "beans",
         "home-manager": "home-manager",
         "jetbra": "jetbra",
         "nixos-hardware": "nixos-hardware",
