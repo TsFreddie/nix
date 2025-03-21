@@ -81,8 +81,8 @@
         }
         // {
           inherit stable;
-          zen-browser = inputs.zen-browser.packages.${system};
-          beans = inputs.beans.packages;
+          zen-browser = inputs.zen-browser.packages.${system}.default;
+          beans = inputs.beans.packages.${system};
         };
 
       lib = nixpkgs.lib;

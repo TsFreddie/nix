@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742571942,
-        "narHash": "sha256-aNK8zUtwKCiCI24LKWHhvUnxE8WnfZdlM22yXASvNBM=",
+        "lastModified": 1742575641,
+        "narHash": "sha256-mJb+e478EWo0Q/RA3staYcPK7qGgYs8VHr2D3vDbyxc=",
         "owner": "Sanfrag",
         "repo": "beans",
-        "rev": "97257ae358bb1560bb420e3ea09923d3d84c1116",
+        "rev": "4e10d958e0aa46914e86569411b67150a3290f34",
         "type": "github"
       },
       "original": {
