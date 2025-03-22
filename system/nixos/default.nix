@@ -14,7 +14,11 @@
   # Substituters
   nix.settings.substituters = [
     "https://mirrors.cernet.edu.cn/nix-channels/store"
-    "https://cache.nixos.org"
+    "https://cache.garnix.io"
+  ];
+
+  nix.settings.trusted-public-keys = [
+    "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
   ];
 
   # Enable bluetooth
