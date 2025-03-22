@@ -52,6 +52,7 @@
 
     beans.pbean
     beans.vbean
+    youtube-music
   ];
 
   # basic configuration of git, please change to your own
