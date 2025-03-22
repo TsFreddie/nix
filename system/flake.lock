@@ -16,7 +16,6 @@
       },
       "original": {
         "owner": "Sanfrag",
-        "ref": "master",
         "repo": "beans",
         "type": "github"
       }
@@ -52,7 +51,6 @@
       },
       "original": {
         "owner": "Sanfrag",
-        "ref": "master",
         "repo": "nix-jetbra",
         "type": "github"
       }

@@ -56,7 +56,7 @@
       qt5.qttools
       qpwgraph
 
-      zen-browser
+      zen-browser.default
     ]
     ++ [
       # fixes gnome/gtk stuff
