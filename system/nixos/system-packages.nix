@@ -63,6 +63,8 @@
       qpwgraph
 
       zen-browser.default
+
+      icu
     ]
     ++ [
       # fixes gnome/gtk stuff
