@@ -38,7 +38,6 @@
     [
       obs-studio
       blender
-      krita
       insomnia
       anytype
       inkscape
