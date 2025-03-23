@@ -1,8 +1,14 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  extra,
+  inputs,
+  ...
+}:
 
 {
   environment.systemPackages =
     with pkgs;
+    with extra;
     [
       git
       vim
@@ -49,9 +55,9 @@
       p7zip
       unrar
 
-      stable.bitwarden-desktop
-      stable.bitwarden-cli
-      stable.chromium
+      bitwarden-desktop
+      bitwarden-cli
+      chromium
 
       qt5.qttools
       qpwgraph

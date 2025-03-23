@@ -1,10 +1,6 @@
-{ inputs, system }:
+{ pkgs }:
 
-final: prev:
-let
-  pkgs = import inputs.nixpkgs { inherit system; };
-in
-{
+final: prev: {
   input-remapper = prev.input-remapper.overrideAttrs (old: {
     version = "2.1.1";
     src = prev.fetchFromGitHub {

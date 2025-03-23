@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  var,
   ...
 }:
 
@@ -13,13 +14,22 @@
 
   # Substituters
   nix.settings.substituters = [
-    "https://mirrors.cernet.edu.cn/nix-channels/store"
-    "https://cache.garnix.io"
+    "https://mirrors.cernet.edu.cn/nix-channels/store?priority=1"
+    "https://nix-community.cachix.org?priority=40"
+    "https://cache.garnix.io?priority=100" # garnix show have lower priority
   ];
 
   nix.settings.trusted-public-keys = [
     "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
+
+  # Enable non-free packages
+  nixpkgs.config.allowUnfree = true;
+
+  # Enable Docker
+  virtualisation.docker.enable = true;
+  users.users.${var.username}.extraGroups = [ "docker" ];
 
   # Enable bluetooth
   hardware.bluetooth.enable = true;

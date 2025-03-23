@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, var, ... }:
 
 {
   # zsh
@@ -45,4 +45,10 @@
       pure_msg = "p";
     };
   };
+
+  # custom utilities path
+  home.sessionPath = [
+    "$HOME/utils"
+    "${var.pwd}/utils"
+  ];
 }

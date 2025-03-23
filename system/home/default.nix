@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  extra,
   var,
   ...
 }:
@@ -31,29 +32,31 @@
   # '';
 
   # packages
-  home.packages = with pkgs; [
-    # stable packages
-    stable.obs-studio
-    stable.blender
-    stable.krita
-    stable.insomnia
-    stable.anytype
-    stable.inkscape
-    stable.tetrio-desktop
+  home.packages =
+    with pkgs;
+    with extra;
+    [
+      obs-studio
+      blender
+      krita
+      insomnia
+      anytype
+      inkscape
+      tetrio-desktop
 
-    (discord.override {
-      withOpenASAR = true;
-      withVencord = true;
-    })
+      (discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
 
-    godot_4_4-mono
+      godot_4_4-mono
 
-    jetbrains.rider
+      jetbrains.rider
 
-    beans.pbean
-    beans.vbean
-    youtube-music
-  ];
+      beans.pbean
+      beans.vbean
+      youtube-music
+    ];
 
   # basic configuration of git, please change to your own
   programs.git = {

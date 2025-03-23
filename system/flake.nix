@@ -2,9 +2,7 @@
   description = "TsFreddie's NixOS Configuration";
   inputs = {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs?ref=nixos-24.11";
 
     # Home manager
     home-manager = {
@@ -37,7 +35,6 @@
   outputs =
     {
       nixpkgs,
-      nixpkgs-stable,
       home-manager,
       plasma-manager,
       jetbra,
@@ -45,55 +42,17 @@
     }@inputs:
     let
       system = "x86_64-linux";
-
-      stable = import nixpkgs-stable {
-        inherit system;
-        config.allowUnfree = true;
-        overlays =
-          lib.lists.forEach
-            (lib.fileset.toList (
-              lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/stable
-            ))
-            (
-              file:
-              import file {
-                inherit inputs;
-                inherit system;
-              }
-            );
+      extra = {
+        zen-browser = inputs.zen-browser.packages.${system};
+        beans = inputs.beans.packages.${system};
       };
-
-      pkgs =
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          overlays =
-            lib.lists.forEach
-              (lib.fileset.toList (
-                lib.fileset.fileFilter (file: file.hasExt "nix" && file.type == "regular") ./overlays/nixpkgs
-              ))
-              (
-                file:
-                import file {
-                  inherit inputs;
-                  inherit system;
-                }
-              );
-        }
-        // {
-          inherit stable;
-          zen-browser = inputs.zen-browser.packages.${system};
-          beans = inputs.beans.packages.${system};
-        };
-
       lib = nixpkgs.lib;
       generated = import ./generated.nix;
       var = import ./var.nix // generated;
       specialArgs = {
         inherit var;
         inherit inputs;
-        inherit pkgs;
-        inherit stable;
+        inherit extra;
       };
     in
     {
@@ -110,11 +69,6 @@
                 inherit specialArgs;
                 modules =
                   [
-                    {
-                      imports = [ nixpkgs.nixosModules.readOnlyPkgs ];
-                      nixpkgs.pkgs = pkgs;
-                    }
-
                     ./configuration.nix
                     ./nixos
                     ./var/no-nix-channel.nix

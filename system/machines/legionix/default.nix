@@ -25,4 +25,8 @@
     # fix nvme drive missing on reboot
     "reboot=pci"
   ];
+
+  # enable cuda
+  nixpkgs.config.cudaSupport = true;
+  hardware.nvidia-container-toolkit.enable = true;
 }

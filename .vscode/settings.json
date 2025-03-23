@@ -5,9 +5,6 @@
   "nix.serverPath": "nixd",
   "nix.serverSettings": {
     "nixd": {
-      "nixpkgs": {
-        "expr": "import <nixpkgs> { } // { stable = import <stable> { }; }"
-      },
       "formatting": {
         "command": ["nixfmt"]
       },
