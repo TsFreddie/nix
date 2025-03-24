@@ -30,9 +30,9 @@
       kdePackages.filelight
       kdePackages.kfind
       kdePackages.kcolorchooser
-      kdePackages.kcolorpicker
       kdePackages.ksystemlog
       kdePackages.krdc
+      kdePackages.krfb
       kdePackages.kgpg
       kdePackages.kompare
       kdePackages.k3b
@@ -42,7 +42,6 @@
       kdePackages.ktorrent
       kdePackages.lokalize
       kdePackages.kclock
-      kdePackages.kmail
       kdePackages.kontact
       kdePackages.merkuro
       kdePackages.kdepim-addons
