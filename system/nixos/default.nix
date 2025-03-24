@@ -46,11 +46,6 @@
     enableSSHSupport = true;
   };
 
-  # Enable nh
-  programs.nh = {
-    enable = true;
-  };
-
   # Enable flatpak
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
