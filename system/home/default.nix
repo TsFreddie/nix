@@ -49,6 +49,7 @@
       })
 
       godot_4_4-mono
+      dotnet-sdk_9
 
       jetbrains.rider
 
