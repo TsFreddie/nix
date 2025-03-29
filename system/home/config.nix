@@ -1,4 +1,9 @@
-{ config, var, ... }:
+{
+  config,
+  var,
+  lib,
+  ...
+}:
 
 with config.lib.file;
 
@@ -16,6 +21,13 @@ in
     # ghostty config
     ".config/ghostty" = {
       source = mkLink "${cfg}/ghostty";
+    };
+
+    # allow unfree
+    ".config/nixpkgs/config.nix" = {
+      text = lib.generators.toPretty { } {
+        allowUnfree = true;
+      };
     };
   };
 }
