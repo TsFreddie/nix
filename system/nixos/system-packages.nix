@@ -57,6 +57,7 @@
       bitwarden-desktop
       bitwarden-cli
       chromium
+      libreoffice-qt6
 
       qt5.qttools
       qpwgraph
