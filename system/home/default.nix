@@ -56,6 +56,8 @@
       beans.pbean
       beans.vbean
       youtube-music
+
+      scrcpy
     ];
 
   # basic configuration of git, please change to your own
