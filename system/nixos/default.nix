@@ -73,9 +73,4 @@
     enable = true;
     enable32Bit = true;
   };
-
-  # Enable avahi
-  services.avahi = {
-    enable = true;
-  };
 }

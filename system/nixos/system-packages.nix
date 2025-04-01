@@ -53,6 +53,8 @@
 
       p7zip
       unrar
+      unzip
+      zip
 
       bitwarden-desktop
       bitwarden-cli
@@ -63,6 +65,7 @@
       qpwgraph
 
       zen-browser.default
+      okteta
 
       icu
     ]
