@@ -2,6 +2,7 @@
   lib,
   pkgs,
   var,
+  config,
   ...
 }:
 
@@ -73,4 +74,7 @@
     enable = true;
     enable32Bit = true;
   };
+
+  # Enable OpenTabletDriver
+  hardware.opentabletdriver.enable = true;
 }
