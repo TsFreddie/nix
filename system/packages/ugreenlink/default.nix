@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin $out/pkgs
     cp -r out/* $out/pkgs/
 
-    install -Dm644 $out/pkgs/icon.png $out/share/icons/hicolor/256x256/${pname}.png
+    install -Dm644 $out/pkgs/icon.png $out/share/icons/hicolor/256x256/apps/${pname}.png
     install -Dm644 ${desktopItem}/share/applications/${pname}.desktop -t $out/share/applications
     makeWrapper ${nwjs}/bin/nw $out/bin/${pname} --add-flags $out/pkgs
 
