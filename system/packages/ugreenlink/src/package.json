@@ -1,7 +1,8 @@
 {
-  "main": "https://www.ug.link",
+  "main": "./index.html",
   "name": "uglink",
   "product_string": "uglink",
+  "inject_js_start": "./index.js",
   "chromium-args": "--ozone-platform-hint=auto --enable-wayland-ime --disable-web-security",
   "version": "0.0.1",
   "node-remote": [
@@ -9,6 +10,8 @@
   ],
   "dom_storage_quota": 4095,
   "window": {
+    "width": 1280,
+    "height": 720,
     "icon": "./icon.png"
   }
 }
