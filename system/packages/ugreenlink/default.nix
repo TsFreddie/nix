@@ -3,6 +3,7 @@
   nwjs,
   makeDesktopItem,
   makeWrapper,
+  imagemagick,
   ...
 }:
 
@@ -11,7 +12,10 @@ stdenv.mkDerivation rec {
   src = ./src;
   version = "0.0.1";
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    makeWrapper
+    imagemagick
+  ];
   buildInputs = [ nwjs ];
 
   desktopItem = makeDesktopItem {
@@ -46,7 +50,11 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin $out/pkgs
     cp -r out/* $out/pkgs/
 
-    install -Dm644 $out/pkgs/icon.png $out/share/icons/hicolor/scalable/apps/${pname}.png
+    for i in 16 24 48 64 96 128 256 512; do
+      mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
+      convert -background none -resize ''${i}x''${i} $out/pkgs/icon.png $out/share/icons/hicolor/''${i}x''${i}/apps/${pname}.png
+    done
+
     install -Dm644 ${desktopItem}/share/applications/${pname}.desktop -t $out/share/applications
     makeWrapper ${nwjs}/bin/nw $out/bin/${pname} --add-flags $out/pkgs
 
