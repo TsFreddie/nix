@@ -45,7 +45,6 @@
       kdePackages.kontact
       kdePackages.merkuro
       kdePackages.kdepim-addons
-      kdePackages.plasma-firewall
 
       qalculate-qt
 
