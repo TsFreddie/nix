@@ -45,6 +45,7 @@
       kdePackages.kontact
       kdePackages.merkuro
       kdePackages.kdepim-addons
+      kdePackages.plasma-browser-integration
 
       qalculate-qt
 
