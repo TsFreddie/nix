@@ -2,7 +2,6 @@
   lib,
   pkgs,
   var,
-  config,
   ...
 }:
 
@@ -75,4 +74,7 @@
 
   # Enable OpenTabletDriver
   hardware.opentabletdriver.enable = true;
+
+  # Linux kernel version
+  boot.kernelPackages = pkgs.linuxPackages_6_14;
 }
