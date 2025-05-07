@@ -19,9 +19,6 @@
   hardware.nvidia.powerManagement.enable = true;
 
   boot.kernelParams = [
-    # reduce stuttering
-    "nvidia.NVreg_EnableGpuFirmware=0"
-
     # fix nvme drive missing on reboot
     "reboot=pci"
   ];
