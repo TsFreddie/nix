@@ -58,7 +58,7 @@
       youtube-music
 
       scrcpy
-
+      yt-dlp
       (callPackage ../packages/ugreenlink { })
     ];
   # basic configuration of git, please change to your own
