@@ -139,7 +139,28 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "plasma-manager": "plasma-manager",
+        "twcn-admin": "twcn-admin",
         "zen-browser": "zen-browser"
+      }
+    },
+    "twcn-admin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1748595905,
+        "narHash": "sha256-c5ipmnkDLwc73VGrhaahVweFAMZX6QXFluCEMO1GD1M=",
+        "owner": "TsFreddie",
+        "repo": "twcn-admin",
+        "rev": "375e08928381bc8e75679d902fcb1aa4f2cbfaed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TsFreddie",
+        "repo": "twcn-admin",
+        "type": "github"
       }
     },
     "zen-browser": {

@@ -14,7 +14,7 @@
 
   # Substituters
   nix.settings.substituters = [
-    "https://mirrors.cernet.edu.cn/nix-channels/store?priority=1"
+    "https://mirror.sjtu.edu.cn/nix-channels/store?priority=1"
     "https://nix-community.cachix.org?priority=40"
   ];
 

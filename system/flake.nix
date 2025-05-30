@@ -30,6 +30,11 @@
       url = "github:Sanfrag/beans";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    twcn-admin = {
+      url = "github:TsFreddie/twcn-admin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,6 +43,7 @@
       home-manager,
       plasma-manager,
       jetbra,
+      twcn-admin,
       ...
     }@inputs:
     let
@@ -84,6 +90,7 @@
                       home-manager.sharedModules = [
                         plasma-manager.homeManagerModules.plasma-manager
                         jetbra.homeManagerModules.jetbra
+                        twcn-admin.homeManagerModules.default
                       ];
 
                       home-manager.users.${var.username} = {
