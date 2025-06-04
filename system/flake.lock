@@ -150,11 +150,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1749015387,
-        "narHash": "sha256-CWcnove3jes5ZY3EPRIaJrcq3KOr/lGKC1k2v+NPtP0=",
+        "lastModified": 1749016168,
+        "narHash": "sha256-AeaBSS1gGjiz3cqXnm8XnDTIL3qtvTN5zNYUeDD46sE=",
         "owner": "TsFreddie",
         "repo": "twcn-admin",
-        "rev": "f08da8cee36d089e890360fad24258b59f07534a",
+        "rev": "45df80f11aaf4096115b1736bd88c3a19bec1fb1",
         "type": "github"
       },
       "original": {
