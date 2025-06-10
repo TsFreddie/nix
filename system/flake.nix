@@ -17,6 +17,12 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    # KWin effects forceblur
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Rocket powered garment
     jetbra.url = "github:Sanfrag/nix-jetbra";
 
@@ -51,6 +57,7 @@
       extra = {
         zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
+        kwin-effects-forceblur = inputs.kwin-effects-forceblur.packages.${system};
       };
       lib = nixpkgs.lib;
       generated = import ./generated.nix;

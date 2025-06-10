@@ -69,6 +69,7 @@
       okteta
 
       icu
+      kwin-effects-forceblur.default
     ]
     ++ [
       # fixes gnome/gtk stuff
