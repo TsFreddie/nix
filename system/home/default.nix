@@ -43,10 +43,7 @@
       inkscape
       tetrio-desktop
 
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
+      vesktop
 
       godot_4_4-mono
       dotnet-sdk_9
