@@ -15,7 +15,7 @@
 
   # Use beta driver
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-  hardware.nvidia.open = false;
+  hardware.nvidia.open = true;
   hardware.nvidia.powerManagement.enable = true;
 
   boot.kernelParams = [
