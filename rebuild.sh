@@ -137,10 +137,12 @@ if [[ "$options_upgrade" == true ]]; then
     info_echo "Running nix flake update"
     nix flake update --flake path:$PWD/system
 
-    # update develops
+    # update develops (only flake-based ones)
     for develop in $(find ./develop/* -type d); do
-        info_echo "Updating develop $(basename "$develop")"
-        nix flake update --flake path:$PWD/develop/$(basename "$develop")
+        if [[ -f "$develop/flake.nix" ]]; then
+            info_echo "Updating develop $(basename "$develop") (flake)"
+            nix flake update --flake path:$PWD/develop/$(basename "$develop")
+        fi
     done
 
     # if not success, exit
