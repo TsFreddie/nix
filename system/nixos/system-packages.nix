@@ -65,10 +65,12 @@
       qt5.qttools
       qpwgraph
 
-      zen-browser.default
       okteta
 
       icu
+      wl-clipboard
+
+      zen-browser.default
       kwin-effects-forceblur.default
     ]
     ++ [
