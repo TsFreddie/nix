@@ -49,15 +49,16 @@
       dotnet-sdk_9
 
       jetbrains.rider
-
-      beans.pbean
-      beans.vbean
       youtube-music
 
       scrcpy
       yt-dlp
 
       pixelorama
+      ghidra
+
+      beans.pbean
+      beans.vbean
       (callPackage ../packages/ugreenlink { })
     ];
   # basic configuration of git, please change to your own
