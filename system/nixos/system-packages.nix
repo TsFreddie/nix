@@ -72,6 +72,8 @@
 
       zen-browser.default
       kwin-effects-forceblur.default
+
+      dotnet-runtime
     ]
     ++ [
       # fixes gnome/gtk stuff
