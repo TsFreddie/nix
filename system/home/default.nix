@@ -46,7 +46,7 @@
       vesktop
 
       godot_4_4-mono
-      dotnet-sdk_9
+      dotnet-sdk_8
 
       jetbrains.rider
       youtube-music

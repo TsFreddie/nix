@@ -72,18 +72,12 @@
 
       zen-browser.default
       kwin-effects-forceblur.default
-
-      dotnet-runtime
     ]
     ++ [
       # fixes gnome/gtk stuff
       adwaita-icon-theme
       adwaita-icon-theme-legacy
     ];
-
-  environment.sessionVariables = {
-    DOTNET_ROOT = "${pkgs.dotnet-runtime}";
-  };
 
   services.udev.packages = with pkgs; [
     vial
