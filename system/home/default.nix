@@ -56,8 +56,8 @@
       pixelorama
       ghidra
 
-      beans.pbean
-      beans.vbean
+      beans.pbean-dev
+      beans.vbean-dev
       (callPackage ../packages/ugreenlink { })
     ];
   # basic configuration of git, please change to your own
