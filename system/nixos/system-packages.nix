@@ -73,7 +73,7 @@
       zen-browser.default
       kwin-effects-forceblur.default
 
-      dotnet-sdk
+      dotnet-sdk_9
     ]
     ++ [
       # fixes gnome/gtk stuff
@@ -82,7 +82,7 @@
     ];
 
   environment.sessionVariables = {
-    DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_9}/share/dotnet";
   };
 
   services.udev.packages = with pkgs; [
