@@ -58,6 +58,8 @@
 
       beans.pbean-dev
       beans.vbean-dev
+
+      nwjs-sdk
       (callPackage ../packages/ugreenlink { })
     ];
   # basic configuration of git, please change to your own
