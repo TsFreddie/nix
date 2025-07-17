@@ -74,6 +74,7 @@
       kwin-effects-forceblur.default
 
       dotnet-sdk_9
+      protontricks
     ]
     ++ [
       # fixes gnome/gtk stuff
