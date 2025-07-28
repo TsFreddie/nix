@@ -76,5 +76,5 @@
   hardware.opentabletdriver.enable = true;
 
   # Linux kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

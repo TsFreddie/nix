@@ -71,7 +71,6 @@
       wl-clipboard
 
       zen-browser.default
-      kwin-effects-forceblur.default
 
       dotnet-sdk_9
       protontricks

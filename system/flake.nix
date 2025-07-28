@@ -2,11 +2,11 @@
   description = "TsFreddie's NixOS Configuration";
   inputs = {
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager?ref=release-25.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,12 +15,6 @@
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
-    };
-
-    # KWin effects forceblur
-    kwin-effects-forceblur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Rocket powered garment
@@ -57,7 +51,6 @@
       extra = {
         zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
-        kwin-effects-forceblur = inputs.kwin-effects-forceblur.packages.${system};
       };
       lib = nixpkgs.lib;
       generated = import ./generated.nix;
