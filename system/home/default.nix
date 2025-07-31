@@ -36,7 +36,6 @@
     with pkgs;
     with extra;
     [
-      obs-studio
       blender
       insomnia
       anytype
