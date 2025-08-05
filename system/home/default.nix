@@ -59,7 +59,6 @@
       beans.vbean-dev
 
       nwjs-sdk
-      ardour
       (callPackage ../packages/ugreenlink { })
     ];
   # basic configuration of git, please change to your own
