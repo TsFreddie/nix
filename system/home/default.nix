@@ -38,7 +38,6 @@
     [
       blender
       insomnia
-      anytype
       inkscape
       tetrio-desktop
 
