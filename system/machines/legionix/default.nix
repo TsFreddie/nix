@@ -23,7 +23,9 @@
     "reboot=pci"
   ];
 
-  # enable cuda
-  nixpkgs.config.cudaSupport = true;
   hardware.nvidia-container-toolkit.enable = true;
+
+  services.ollama = {
+    acceleration = "cuda";
+  };
 }
