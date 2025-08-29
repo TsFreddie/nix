@@ -25,7 +25,13 @@ sheet.replaceSync(`
       
   /* Clean-up Statusbar */
   #root .\\[grid-area\\:Statusbar\\] > button,
-  #root .\\[grid-area\\:Statusbar\\] > div > div:last-child > button  {
+  #root .\\[grid-area\\:Statusbar\\] > div:last-child > div button:not([data-testid])  {
+    display: none !important;
+  }
+  #root .\\[grid-area\\:Statusbar\\] > div:last-child > div a  {
+    display: none !important;
+  }
+  #root .\\[grid-area\\:Statusbar\\] > div:first-child > button:first-child {
     display: none !important;
   }
 `);
