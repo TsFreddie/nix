@@ -1,6 +1,7 @@
 {
   stdenv,
   nwjs,
+  nwjs-ffmpeg-prebuilt,
   makeDesktopItem,
   makeWrapper,
   imagemagick,
@@ -49,6 +50,7 @@ stdenv.mkDerivation rec {
 
     mkdir -p $out/bin $out/pkgs
     cp -r out/* $out/pkgs/
+    cp -r ${nwjs-ffmpeg-prebuilt}/lib/* $out/bin/
 
     for i in 16 24 48 64 96 128 256 512; do
       mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
