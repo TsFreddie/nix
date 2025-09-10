@@ -88,7 +88,7 @@
                       home-manager.extraSpecialArgs = specialArgs;
                       home-manager.backupFileExtension = "fbkp";
                       home-manager.sharedModules = [
-                        plasma-manager.homeManagerModules.plasma-manager
+                        plasma-manager.homeModules.plasma-manager
                         jetbra.homeManagerModules.jetbra
                         twcn-admin.homeManagerModules.default
                       ];
