@@ -32,34 +32,11 @@
   # '';
 
   # packages
-  home.packages =
-    with pkgs;
-    with extra;
-    [
-      blender
-      insomnia
-      inkscape
-      tetrio-desktop
+  home.packages = import ../packages/home.nix {
+    inherit pkgs;
+    inherit extra;
+  };
 
-      vesktop
-
-      godot_4_4-mono
-
-      jetbrains.rider
-      youtube-music
-
-      scrcpy
-      yt-dlp
-
-      pixelorama
-      ghidra
-
-      beans.pbean-dev
-      beans.vbean-dev
-
-      nwjs-sdk
-      (callPackage ../packages/ugreenlink { })
-    ];
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;

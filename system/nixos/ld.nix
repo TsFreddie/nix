@@ -1,6 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, extra, ... }:
 
 {
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = (import ../imports/ld-packages.nix { inherit pkgs; }).ldPackages;
+  programs.nix-ld.libraries = (
+    import ../packages/ld.nix {
+      inherit pkgs;
+      inherit extra;
+    }
+  );
 }

@@ -2,6 +2,7 @@
   lib,
   pkgs,
   var,
+  extra,
   ...
 }:
 
@@ -77,4 +78,22 @@
 
   # Linux kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # Packages
+  environment.systemPackages =
+    (import ../packages/system.nix {
+      inherit pkgs;
+      inherit extra;
+    })
+    ++ (import ../packages/ld.nix {
+      inherit pkgs;
+      inherit extra;
+    });
+
+  services.udev.packages = (
+    import ../packages/udev.nix {
+      inherit pkgs;
+      inherit extra;
+    }
+  );
 }
