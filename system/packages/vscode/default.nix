@@ -5,8 +5,8 @@ let
 in
 originalPackage.overrideAttrs (old: {
   name = "vscode-ld";
-  version = originalPackage.version;
-  src = originalPackage.src;
+  version = old.version;
+  __intentionallyOverridingVersion = true;
   buildCommand = ''
     set -euo pipefail
 
