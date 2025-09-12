@@ -6,7 +6,6 @@ with extra;
   git
   vim
   wget
-  vscode
   nixd
   nixfmt-rfc-style
   thunderbird
@@ -68,6 +67,10 @@ with extra;
   dotnet-sdk_9
   protontricks
 
+  # fix some GTK issues
   adwaita-icon-theme
   adwaita-icon-theme-legacy
+
+  # custom vscode package with nix-ld linked
+  (callPackage ./vscode { })
 ]
