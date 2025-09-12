@@ -1,6 +1,7 @@
 {
   pkgs,
   extra,
+  options,
   ...
 }:
 
@@ -78,7 +79,8 @@
       # fixes gnome/gtk stuff
       adwaita-icon-theme
       adwaita-icon-theme-legacy
-    ];
+    ]
+    ++ (import ../imports/ld-packages.nix { inherit pkgs; }).ldPackages;
 
   environment.sessionVariables = {
     DOTNET_ROOT = "${pkgs.dotnet-sdk_9}/share/dotnet";
