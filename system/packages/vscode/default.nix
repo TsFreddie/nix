@@ -22,11 +22,8 @@ originalPackage.overrideAttrs (old: {
         set +x
       '') (old.outputs or [ "out" ])
     )}
-  '';
 
-  installPhase = ''
     wrapProgram $out/bin/code \
-      --set LD_LIBRARY_PATH "$NIX_LD_LIBRARY_PATH"
+      --prefix LD_LIBRARY_PATH : "/run/current-system/sw/share/nix-ld/lib"
   '';
-
 })
