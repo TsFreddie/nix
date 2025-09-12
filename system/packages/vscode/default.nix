@@ -22,7 +22,7 @@ originalPackage.overrideAttrs (old: {
 
   postInstall = ''
     wrapProgram $out/bin/code \
-      --set LD_LIBRARY_PATH "$NIX_LD_LIBRARY_PATH"
+      --set LD_LIBRARY_PATH "/run/current-system/sw/share/nix-ld/lib"
   '';
 
 })
