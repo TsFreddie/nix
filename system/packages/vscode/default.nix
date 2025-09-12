@@ -1,4 +1,4 @@
-{ vscode, lib }:
+{ vscode, lib, stdenv }:
 
 let
   originalPackage = vscode;
@@ -20,9 +20,9 @@ originalPackage.overrideAttrs (old: {
     )}
   '';
 
-  # postInstall = ''
-  #   wrapProgram $out/bin/code \
-  #     --set LD_LIBRARY_PATH "/run/current-system/sw/share/nix-ld/lib"
-  # '';
+  postInstall = ''
+    wrapProgram $out/bin/code \
+      --set NIX_LD "${lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker"}"
+  '';
 
 })
