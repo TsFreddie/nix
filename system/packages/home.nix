@@ -25,5 +25,6 @@ with extra;
   beans.vbean-dev
 
   nwjs-sdk
+  vscode
   (callPackage ./ugreenlink { })
 ]
