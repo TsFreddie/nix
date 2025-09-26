@@ -27,4 +27,5 @@ with extra;
   nwjs-sdk
   vscode
   (callPackage ./ugreenlink { })
+  (callPackage ./auggie { })
 ]
