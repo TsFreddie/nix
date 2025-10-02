@@ -7,21 +7,42 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.lenovo-legion-16achg6-nvidia
   ];
 
   # hostname
   networking.hostName = "legionix";
 
-  # Use beta driver
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-  hardware.nvidia.open = true;
-  hardware.nvidia.powerManagement.enable = true;
+  # hardware
+  boot = {
+    kernelParams = [
+      # fix nvme drive missing on reboot
+      "reboot=cold"
 
-  boot.kernelParams = [
-    # fix nvme drive missing on reboot
-    "reboot=pci"
-  ];
+      # pstate
+      "amd_pstate=active"
+    ];
+  };
+
+  hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  hardware.amdgpu.initrd.enable = false;
+  services.tlp.enable = !config.services.power-profiles-daemon.enable;
+  services.fstrim.enable = true;
+
+  # Use beta driver
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      open = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+    };
+  };
 
   hardware.nvidia-container-toolkit.enable = true;
 
