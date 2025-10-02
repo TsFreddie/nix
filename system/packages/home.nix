@@ -13,7 +13,6 @@ with extra;
   godot_4_4-mono
 
   jetbrains.rider
-  youtube-music
 
   scrcpy
   yt-dlp
