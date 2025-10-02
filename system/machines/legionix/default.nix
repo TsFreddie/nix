@@ -1,7 +1,7 @@
 # Lenovo Legion R9000K 2021
 # This is nvidia config. Not a hybrid config.
 
-{ config, inputs, ... }:
+{ config, ... }:
 
 {
   imports = [
