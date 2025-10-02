@@ -1,31 +1,39 @@
 # Lenovo Legion R9000K 2021
-# This is nvidia config. Not a hybrid config.
+# This is a AMD only config with nvidia GPU setting through passthrough
 
-{ config, inputs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.nixos-hardware.nixosModules.lenovo-legion-16achg6-nvidia
   ];
 
   # hostname
   networking.hostName = "legionix";
 
-  # Use beta driver
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-  hardware.nvidia.open = true;
-  hardware.nvidia.powerManagement.enable = true;
+  boot = {
+    kernelParams = [
+      # fix nvme drive missing on reboot
+      "reboot=cold"
 
-  boot.kernelParams = [
-    # fix nvme drive missing on reboot
-    "reboot=pci"
-  ];
-
-  hardware.nvidia-container-toolkit.enable = true;
-
-  services.ollama = {
-    acceleration = "cuda";
+      # pstate
+      "amd_pstate=active"
+    ];
   };
+
+  hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
+
+  services.xserver.videoDrivers = [ "modesetting" ];
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+  hardware.amdgpu.initrd.enable = true;
+  services.tlp.enable = !config.services.power-profiles-daemon.enable;
+  services.fstrim.enable = true;
 }
