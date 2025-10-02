@@ -1,6 +1,7 @@
 {
   description = "TsFreddie's NixOS Configuration";
   inputs = {
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     # Home manager
