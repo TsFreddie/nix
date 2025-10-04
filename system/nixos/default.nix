@@ -73,6 +73,9 @@
     enable32Bit = true;
   };
 
+  # Gamemode
+  programs.gamemode.enable = true;
+
   # Enable OpenTabletDriver
   hardware.opentabletdriver.enable = true;
 
