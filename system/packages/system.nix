@@ -73,4 +73,8 @@ with extra;
 
   # custom vscode package with nix-ld linked
   (callPackage ./vscode { })
+
+  # games
+  umu-launcher
+  protonplus
 ]
