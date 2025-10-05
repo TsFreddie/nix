@@ -81,6 +81,7 @@
 
   # Linux kernel version
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = [ "ntsync" ];
 
   # Packages
   environment.systemPackages = (
