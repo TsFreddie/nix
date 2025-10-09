@@ -19,6 +19,7 @@ with extra;
 
   pixelorama
   ghidra
+  audacity
 
   beans.pbean-dev
   beans.vbean-dev
