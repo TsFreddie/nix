@@ -67,6 +67,8 @@ with extra;
   dotnet-sdk_9
   protontricks
 
+  ripgrep
+
   # fix some GTK issues
   adwaita-icon-theme
   adwaita-icon-theme-legacy
