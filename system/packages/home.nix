@@ -24,6 +24,8 @@ with extra;
   beans.pbean-dev
   beans.vbean-dev
 
+  wechat-devtools
+
   nwjs-sdk
   vscode
   (callPackage ./ugreenlink { })

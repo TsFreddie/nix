@@ -34,6 +34,11 @@
       url = "github:TsFreddie/twcn-admin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wechat-devtools = {
+      url = "github:MaikoTan/wechat-devtools";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -50,6 +55,7 @@
       extra = {
         zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
+        wechat-devtools = inputs.wechat-devtools;
       };
       lib = nixpkgs.lib;
       generated = import ./generated.nix;
@@ -72,40 +78,38 @@
               name = hostname;
               value = lib.nixosSystem {
                 inherit specialArgs;
-                modules =
-                  [
-                    ./configuration.nix
-                    ./nixos
-                    ./var/no-nix-channel.nix
+                modules = [
+                  ./configuration.nix
+                  ./nixos
+                  ./var/no-nix-channel.nix
 
-                    # make home-manager as a module of nixos
-                    # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-                    home-manager.nixosModules.home-manager
-                    {
-                      home-manager.useGlobalPkgs = true;
-                      home-manager.useUserPackages = true;
-                      home-manager.extraSpecialArgs = specialArgs;
-                      home-manager.backupFileExtension = "fbkp";
-                      home-manager.sharedModules = [
-                        plasma-manager.homeModules.plasma-manager
-                        jetbra.homeManagerModules.jetbra
-                        twcn-admin.homeManagerModules.default
+                  # make home-manager as a module of nixos
+                  # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+                  home-manager.nixosModules.home-manager
+                  {
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.extraSpecialArgs = specialArgs;
+                    home-manager.backupFileExtension = "fbkp";
+                    home-manager.sharedModules = [
+                      plasma-manager.homeModules.plasma-manager
+                      jetbra.homeManagerModules.jetbra
+                      twcn-admin.homeManagerModules.default
+                    ];
+
+                    home-manager.users.${var.username} = {
+                      imports = [
+                        ./home
+                      ]
+                      ++ lib.optionals (lib.pathExists ./machines/${hostname}/home.nix) [
+                        ./machines/${hostname}/home.nix
                       ];
-
-                      home-manager.users.${var.username} = {
-                        imports =
-                          [
-                            ./home
-                          ]
-                          ++ lib.optionals (lib.pathExists ./machines/${hostname}/home.nix) [
-                            ./machines/${hostname}/home.nix
-                          ];
-                      };
-                    }
-                  ]
-                  ++ [
-                    path
-                  ];
+                    };
+                  }
+                ]
+                ++ [
+                  path
+                ];
               };
             }
           )
