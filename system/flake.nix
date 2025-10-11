@@ -35,6 +35,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    chinese-fonts-overlay.url = "github:brsvh/chinese-fonts-overlay";
   };
 
   outputs =
@@ -74,6 +75,17 @@
               value = lib.nixosSystem {
                 inherit specialArgs;
                 modules = [
+                  (
+                    { ... }:
+                    {
+                      nixpkgs = {
+                        config.allowUnfree = true;
+                        overlays = [
+                          inputs.chinese-fonts-overlay.overlays.default
+                        ];
+                      };
+                    }
+                  )
                   ./configuration.nix
                   ./nixos
                   ./var/no-nix-channel.nix
