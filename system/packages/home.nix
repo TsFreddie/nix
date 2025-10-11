@@ -24,6 +24,12 @@ with extra;
   beans.pbean-dev
   beans.vbean-dev
 
+  noto-fonts
+  noto-fonts-cjk-sans
+  noto-fonts-cjk-serif
+  noto-fonts-color-emoji
+  nerd-fonts.fira-code
+
   nwjs-sdk
   vscode
   (callPackage ./ugreenlink { })
