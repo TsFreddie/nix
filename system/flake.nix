@@ -35,10 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wechat-devtools = {
-      url = "github:MaikoTan/wechat-devtools";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -55,7 +51,6 @@
       extra = {
         zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
-        wechat-devtools = inputs.wechat-devtools;
       };
       lib = nixpkgs.lib;
       generated = import ./generated.nix;

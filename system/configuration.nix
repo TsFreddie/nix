@@ -4,7 +4,12 @@
 
 # Lenovo Legion R9000K 2021
 
-{ pkgs, var, lib, ... }:
+{
+  pkgs,
+  var,
+  lib,
+  ...
+}:
 
 {
   # Bootloader.
