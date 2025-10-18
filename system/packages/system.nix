@@ -68,6 +68,7 @@ with extra;
   protontricks
 
   ripgrep
+  rsync
 
   # fix some GTK issues
   adwaita-icon-theme
