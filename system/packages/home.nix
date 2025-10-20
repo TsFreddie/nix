@@ -31,7 +31,8 @@ with extra;
   nerd-fonts.fira-code
 
   nwjs-sdk
-  vscode
+
+  (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
   (callPackage ./auggie { })
   (callPackage ./wechat-devtools { })

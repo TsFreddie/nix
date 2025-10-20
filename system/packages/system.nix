@@ -74,9 +74,6 @@ with extra;
   adwaita-icon-theme
   adwaita-icon-theme-legacy
 
-  # custom vscode package with nix-ld linked
-  (callPackage ./vscode { })
-
   # games
   umu-launcher
   protonplus
