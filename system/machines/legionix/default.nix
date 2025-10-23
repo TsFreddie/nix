@@ -49,4 +49,8 @@
   services.ollama = {
     acceleration = "cuda";
   };
+
+  services.tabby = {
+    acceleration = "cuda";
+  };
 }

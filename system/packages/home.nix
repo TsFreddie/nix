@@ -34,6 +34,5 @@ with extra;
 
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
-  (callPackage ./auggie { })
   (callPackage ./wechat-devtools { })
 ]
