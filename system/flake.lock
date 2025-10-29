@@ -157,27 +157,27 @@
         "jetbra": "jetbra",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",
-        "twcn-admin": "twcn-admin",
+        "waterfall": "waterfall",
         "zen-browser": "zen-browser"
       }
     },
-    "twcn-admin": {
+    "waterfall": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1749977458,
-        "narHash": "sha256-5oy9kSGR+iWMX/c65RgixgR19APvdjUsDpAq78pNUBs=",
-        "owner": "TsFreddie",
-        "repo": "twcn-admin",
-        "rev": "e7e617d065e90ff5e344f057a8eca3a0b04f44f2",
+        "lastModified": 1761760965,
+        "narHash": "sha256-H2wvbmw7CkJr0J1iE/kGcGQqdxCVdsxvyUoxEI9WDAY=",
+        "owner": "Sanfrag",
+        "repo": "waterfall",
+        "rev": "325e041e7427cb7d9f68fdc5bd70c011f8967f51",
         "type": "github"
       },
       "original": {
-        "owner": "TsFreddie",
-        "repo": "twcn-admin",
+        "owner": "Sanfrag",
+        "repo": "waterfall",
         "type": "github"
       }
     },

@@ -19,6 +19,11 @@
     # Rocket powered garment
     jetbra.url = "github:Sanfrag/nix-jetbra";
 
+    waterfall = {
+      url = "github:Sanfrag/waterfall";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Custom packages
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -30,11 +35,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    twcn-admin = {
-      url = "github:TsFreddie/twcn-admin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     chinese-fonts-overlay.url = "github:brsvh/chinese-fonts-overlay";
   };
 
@@ -43,8 +43,8 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      waterfall,
       jetbra,
-      twcn-admin,
       ...
     }@inputs:
     let
@@ -90,6 +90,8 @@
                   ./nixos
                   ./var/no-nix-channel.nix
 
+                  waterfall.nixosModules.waterfall
+
                   # make home-manager as a module of nixos
                   # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
                   home-manager.nixosModules.home-manager
@@ -101,7 +103,6 @@
                     home-manager.sharedModules = [
                       plasma-manager.homeModules.plasma-manager
                       jetbra.homeManagerModules.jetbra
-                      twcn-admin.homeManagerModules.default
                     ];
 
                     home-manager.users.${var.username} = {
