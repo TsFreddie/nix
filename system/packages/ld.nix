@@ -19,4 +19,15 @@ with extra;
   util-linux
   xz
   systemd
+
+  freetype
+  fontconfig
+  glib
+  gtk3
+  cairo
+  pango
+  gdk-pixbuf
+  atk
+
+  libsecret
 ]
