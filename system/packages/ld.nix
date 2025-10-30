@@ -34,6 +34,7 @@ with extra;
   xorg.libxkbfile
   xorg.libxcb
   libxkbcommon
+  libgbm
   freetype
   fontconfig
   glib
