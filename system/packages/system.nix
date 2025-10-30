@@ -77,4 +77,10 @@ with extra;
   # games
   umu-launcher
   protonplus
+
+  # scripting
+  python3
+  uv
+  nodejs
+  bun
 ]
