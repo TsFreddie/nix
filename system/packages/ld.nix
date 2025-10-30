@@ -33,6 +33,7 @@ with extra;
   xorg.libXcomposite
   xorg.libxkbfile
   xorg.libxcb
+  libxkbcommon
   freetype
   fontconfig
   glib
