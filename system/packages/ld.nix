@@ -20,6 +20,19 @@ with extra;
   xz
   systemd
 
+  xorg.libX11
+  xorg.libXext
+  xorg.libXi
+  xorg.libXrender
+  xorg.libXtst
+  xorg.libXrandr
+  xorg.libXinerama
+  xorg.libXcursor
+  xorg.libXdamage
+  xorg.libXfixes
+  xorg.libXcomposite
+  xorg.libxkbfile
+  xorg.libxcb
   freetype
   fontconfig
   glib
@@ -28,6 +41,16 @@ with extra;
   pango
   gdk-pixbuf
   atk
-
   libsecret
+  nspr
+  nss
+  cups
+  dbus
+  at-spi2-atk
+  at-spi2-core
+  libdrm
+  mesa
+  expat
+  alsa-lib
+  pulseaudio
 ]
