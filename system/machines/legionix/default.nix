@@ -1,7 +1,7 @@
 # Lenovo Legion R9000K 2021
 # This is nvidia config. Not a hybrid config.
 
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
@@ -29,6 +29,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [ libglvnd ];
   };
   hardware.amdgpu.initrd.enable = false;
   services.tlp.enable = !config.services.power-profiles-daemon.enable;
