@@ -8,9 +8,9 @@
     fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-rime
-      fcitx5-skk-qt
       fcitx5-gtk
       fcitx5-fluent
+      qt6Packages.fcitx5-skk-qt
     ];
   };
 }

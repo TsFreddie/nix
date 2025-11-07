@@ -40,18 +40,20 @@
   # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "TsFreddie";
-    userEmail = "whatis@tsdo.in";
+    settings = {
+      user = {
+        name = "TsFreddie";
+        email = "whatis@tsdo.in";
+      };
+      core = {
+        autocrlf = "input";
+      };
+    };
     signing = {
       key = "73AEEBCE3A3F9C766E0BBB183054B1FC80F9AF6F";
       signByDefault = true;
     };
     lfs.enable = true;
-    extraConfig = {
-      core = {
-        autocrlf = "input";
-      };
-    };
   };
 
   # This value determines the home Manager release that your
