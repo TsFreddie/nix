@@ -168,11 +168,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762499132,
-        "narHash": "sha256-u7AKnZsw1W1O+zZ4KJjXG0vP7LAWhrR7aemMByHvBNA=",
+        "lastModified": 1762595425,
+        "narHash": "sha256-MGk14+Owna13yq4bONVHubMr3Xfd1IEsDhO8qAV5gtM=",
         "owner": "Sanfrag",
         "repo": "waterfall",
-        "rev": "f38af08e35c37fc7713a2803bd94d1835f245dcc",
+        "rev": "464da47275e64a0ce6703f3cf1ec91ddc8d16f99",
         "type": "github"
       },
       "original": {
