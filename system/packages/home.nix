@@ -32,6 +32,8 @@ with extra;
 
   nwjs-sdk
 
+  unityhub
+
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
   (callPackage ./wechat-devtools { })
