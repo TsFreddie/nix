@@ -29,7 +29,10 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ libglvnd ];
+    extraPackages = with pkgs; [ 
+      libglvnd
+      nvidia-vaapi-driver
+    ];
   };
   hardware.amdgpu.initrd.enable = false;
   services.tlp.enable = !config.services.power-profiles-daemon.enable;
@@ -41,6 +44,7 @@
       modesetting.enable = true;
       powerManagement.enable = true;
       open = true;
+      nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
   };
