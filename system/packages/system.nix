@@ -84,4 +84,7 @@ with extra;
   uv
   nodejs
   bun
+
+  lsfg-vk
+  lsfg-vk-ui
 ]
