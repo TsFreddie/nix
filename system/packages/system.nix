@@ -12,7 +12,8 @@ with extra;
   gamescope
   mpv
   vial
-  btop-rocm
+
+  btop-cuda
 
   xsettingsd
   xorg.xrdb
