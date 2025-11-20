@@ -29,7 +29,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ 
+    extraPackages = with pkgs; [
       libglvnd
       nvidia-vaapi-driver
     ];
@@ -47,6 +47,9 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
+    firmware = with pkgs; [
+      linux-firmware
+    ];
   };
 
   hardware.nvidia-container-toolkit.enable = true;
