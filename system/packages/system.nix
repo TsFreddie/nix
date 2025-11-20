@@ -87,6 +87,4 @@ with extra;
 
   lsfg-vk
   lsfg-vk-ui
-
-  firmware-updater
 ]
