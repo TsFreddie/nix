@@ -12,8 +12,6 @@ with extra;
 
   godot_4_4-mono
 
-  jetbrains.rider
-
   scrcpy
   yt-dlp
 
@@ -36,5 +34,5 @@ with extra;
 
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
-  (callPackage ./wechat-devtools { })
+  # (callPackage ./wechat-devtools { })
 ]

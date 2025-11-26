@@ -81,6 +81,8 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
 
+  services.fwupd.enable = true;
+
   # Packages
   environment.systemPackages = (
     import ../packages/system.nix {

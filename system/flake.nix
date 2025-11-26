@@ -16,9 +16,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    # Rocket powered garment
-    jetbra.url = "github:Sanfrag/nix-jetbra";
-
     waterfall = {
       url = "github:Sanfrag/waterfall";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,7 +41,6 @@
       home-manager,
       plasma-manager,
       waterfall,
-      jetbra,
       ...
     }@inputs:
     let
@@ -102,7 +98,6 @@
                     home-manager.backupFileExtension = "fbkp";
                     home-manager.sharedModules = [
                       plasma-manager.homeModules.plasma-manager
-                      jetbra.homeManagerModules.jetbra
                     ];
 
                     home-manager.users.${var.username} = {
