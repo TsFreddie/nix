@@ -87,4 +87,7 @@ with extra;
 
   lsfg-vk
   lsfg-vk-ui
+
+  # asio
+  wineasio
 ]
