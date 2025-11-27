@@ -39,6 +39,7 @@ with extra;
   kdePackages.merkuro
   kdePackages.kdepim-addons
   kdePackages.plasma-browser-integration
+  kdePackages.kde-cli-tools
 
   qalculate-qt
 
