@@ -57,4 +57,8 @@
   services.ollama = {
     acceleration = "cuda";
   };
+
+  environment.systemPackages = with pkgs; [
+    lenovo-legion
+  ];
 }
