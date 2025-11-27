@@ -40,6 +40,7 @@ with extra;
   kdePackages.kdepim-addons
   kdePackages.plasma-browser-integration
   kdePackages.kde-cli-tools
+  kdePackages.kdesu
 
   qalculate-qt
 
