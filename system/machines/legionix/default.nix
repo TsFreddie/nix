@@ -61,4 +61,8 @@
   environment.systemPackages = with pkgs; [
     lenovo-legion
   ];
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    lenovo-legion-module
+  ];
 }
