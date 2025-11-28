@@ -87,4 +87,6 @@ with extra;
 
   lsfg-vk
   lsfg-vk-ui
+
+  android-tools
 ]
