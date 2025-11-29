@@ -20,6 +20,9 @@
 
       # pstate
       "amd_pstate=active"
+
+      # free performance?
+      "mitigations=off"
     ];
   };
 
