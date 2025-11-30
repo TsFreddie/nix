@@ -31,7 +31,7 @@
     add_newline = false;
     format = lib.concatStrings [
       "$line_break"
-      "[](bold green) $nix_shell$directory$rust$package"
+      "[](bold green)  $nix_shell$directory$rust$package"
       "$line_break"
       "[$character](bold green)"
     ];
