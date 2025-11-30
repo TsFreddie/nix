@@ -31,14 +31,14 @@
     add_newline = false;
     format = lib.concatStrings [
       "$line_break"
-      "[┌─](bold green) $nix_shell$directory$rust$package"
+      "[](bold green) $nix_shell$directory$rust$package"
       "$line_break"
-      "[└$character](bold green)"
+      "[$character](bold green)"
     ];
-    scan_timeout = 10;
+    scan_timeout = 100;
     character = {
       success_symbol = "->";
-      error_symbol = "->";
+      error_symbol = "=>";
     };
     nix_shell = {
       impure_msg = "i";
