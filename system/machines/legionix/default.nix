@@ -19,7 +19,7 @@
       "reboot=cold"
 
       # pstate
-      "amd_pstate=active"
+      "amd_pstate=guided"
 
       # free performance?
       "mitigations=off"
@@ -27,7 +27,10 @@
   };
 
   hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "schedutil";
+  };
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
