@@ -27,6 +27,7 @@
   };
 
   hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
+  powerManagement.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {

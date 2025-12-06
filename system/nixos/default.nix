@@ -73,6 +73,7 @@
 
   # Gamemode
   programs.gamemode.enable = true;
+  programs.gamemode.enableRenice = true;
 
   # Enable OpenTabletDriver
   hardware.opentabletdriver.enable = true;
