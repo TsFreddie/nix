@@ -31,6 +31,7 @@ with extra;
   nwjs-sdk
 
   unityhub
+  ryubing
 
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
