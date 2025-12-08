@@ -24,6 +24,9 @@
       # free performance?
       "mitigations=off"
     ];
+    extraModprobeConfig = ''
+      options nvidia NVreg_UsePageAttributeTable=1
+    '';
   };
 
   hardware.cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
