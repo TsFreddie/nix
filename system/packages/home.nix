@@ -29,6 +29,7 @@ with extra;
   nerd-fonts.fira-code
 
   nwjs-sdk
+  nwjs-ffmpeg-prebuilt
 
   unityhub
   ryubing

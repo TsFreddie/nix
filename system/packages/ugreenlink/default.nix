@@ -49,9 +49,9 @@ stdenv.mkDerivation rec {
     runHook preInstall
 
     mkdir -p $out/bin $out/pkgs
-    mkdir -p $out/bin/lib
+    mkdir -p $out/lib
     cp -r out/* $out/pkgs/
-    cp -r ${nwjs-ffmpeg-prebuilt}/lib/* $out/bin/lib/
+    cp -r ${nwjs-ffmpeg-prebuilt}/lib/* $out/lib/
 
     for i in 16 24 48 64 96 128 256 512; do
       mkdir -p $out/share/icons/hicolor/''${i}x''${i}/apps
