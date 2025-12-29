@@ -89,4 +89,5 @@ with extra;
   lsfg-vk-ui
 
   android-tools
+  bottles
 ]
