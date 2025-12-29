@@ -89,5 +89,7 @@ with extra;
   lsfg-vk-ui
 
   android-tools
-  bottles
+  (bottles.override {
+    removeWarningPopup = true;
+  })
 ]
