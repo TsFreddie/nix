@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Plasma Manager
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
@@ -42,6 +47,7 @@
       home-manager,
       plasma-manager,
       waterfall,
+      aagl,
       ...
     }@inputs:
     let
@@ -88,6 +94,12 @@
                   ./var/no-nix-channel.nix
 
                   waterfall.nixosModules.waterfall
+
+                  {
+                    imports = [ aagl.nixosModules.default ];
+                    nix.settings = aagl.nixConfig; # Set up Cachix
+                    programs.sleepy-launcher.enable = true;
+                  }
 
                   # make home-manager as a module of nixos
                   # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
