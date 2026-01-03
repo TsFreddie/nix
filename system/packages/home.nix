@@ -34,6 +34,8 @@ with extra;
   unityhub
   ryubing
 
+  youtube-music
+
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
   # (callPackage ./wechat-devtools { })
