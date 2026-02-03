@@ -57,8 +57,7 @@
         beans = inputs.beans.packages.${system};
       };
       lib = nixpkgs.lib;
-      generated = import ./generated.nix;
-      var = import ./var.nix // generated;
+      var = import ./var.nix;
       specialArgs = {
         inherit var;
         inherit inputs;
@@ -67,11 +66,11 @@
     in
     {
       nixosConfigurations = builtins.listToAttrs (
-        builtins.map
+        map
           (
             path:
             let
-              hostname = builtins.baseNameOf (builtins.dirOf (toString path));
+              hostname = baseNameOf (dirOf (toString path));
             in
             {
               name = hostname;

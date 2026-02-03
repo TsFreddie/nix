@@ -8,7 +8,7 @@
 with config.lib.file;
 
 let
-  cfg = "${var.pwd}/config";
+  cfg = "/home/${var.username}/nix/config";
   mkLink = mkOutOfStoreSymlink;
 in
 {
@@ -18,16 +18,16 @@ in
       source = mkLink "${cfg}/insomnia-plugin-hide-login";
     };
 
-    # ghostty config
-    ".config/ghostty" = {
-      source = mkLink "${cfg}/ghostty";
-    };
-
     # allow unfree
     ".config/nixpkgs/config.nix" = {
       text = lib.generators.toPretty { } {
         allowUnfree = true;
       };
+    };
+
+    "utils/nid" = {
+      source = ../../nid.sh;
+      executable = true;
     };
   };
 }

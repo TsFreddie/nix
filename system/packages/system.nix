@@ -7,7 +7,7 @@ with extra;
   vim
   wget
   nixd
-  nixfmt-rfc-style
+  nixfmt
   thunderbird
   gamescope
   mpv
@@ -19,7 +19,6 @@ with extra;
   xorg.xrdb
 
   kdePackages.partitionmanager
-  kdePackages.kdenlive
   kdePackages.filelight
   kdePackages.kfind
   kdePackages.kcolorchooser
@@ -42,7 +41,7 @@ with extra;
 
   qalculate-qt
 
-  ghostty
+  alacritty
   gearlever
 
   p7zip

@@ -49,6 +49,5 @@
   # custom utilities path
   home.sessionPath = [
     "$HOME/utils"
-    "${var.pwd}/utils"
   ];
 }
