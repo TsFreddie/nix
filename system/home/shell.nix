@@ -31,14 +31,14 @@
     add_newline = false;
     format = lib.concatStrings [
       "$line_break"
-      "[](bold green)  $nix_shell$directory$rust$package"
+      "[@](bold green)  $nix_shell$directory$rust$package"
       "$line_break"
       "[$character](bold green)"
     ];
     scan_timeout = 100;
     character = {
-      success_symbol = "->";
-      error_symbol = "=>";
+      success_symbol = " >";
+      error_symbol = "[!>](red)";
     };
     nix_shell = {
       impure_msg = "i";
@@ -50,4 +50,17 @@
   home.sessionPath = [
     "$HOME/utils"
   ];
+
+  # alacritty settings
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font = {
+        normal = {
+          family = "Sarasa Term SC";
+          style = "Regular";
+        };
+      };
+    };
+  };
 }
