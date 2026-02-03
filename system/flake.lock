@@ -42,24 +42,6 @@
         "type": "github"
       }
     },
-    "chinese-fonts-overlay": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1763191926,
-        "narHash": "sha256-I71+uQOV9pz8Twf+sGuKvy9K3ldpmYY6wRFGrRMizlg=",
-        "owner": "brsvh",
-        "repo": "chinese-fonts-overlay",
-        "rev": "18c78ed52845347b8af58f836b568472bed1de62",
-        "type": "github"
-      },
-      "original": {
-        "owner": "brsvh",
-        "repo": "chinese-fonts-overlay",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -114,22 +96,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1731139594,
-        "narHash": "sha256-IigrKK3vYRpUu+HEjPL/phrfh7Ox881er1UEsZvw9Q4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "76612b17c0ce71689921ca12d9ffdc9c23ce40b2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1770019141,
         "narHash": "sha256-VKS4ZLNx4PNrABoB0L8KUpc1fE7CLpQXQs985tGfaCU=",
         "owner": "NixOS",
@@ -171,9 +137,8 @@
       "inputs": {
         "aagl": "aagl",
         "beans": "beans",
-        "chinese-fonts-overlay": "chinese-fonts-overlay",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",
         "waterfall": "waterfall",
         "zen-browser": "zen-browser"
