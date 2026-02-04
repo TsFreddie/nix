@@ -10,7 +10,7 @@ with extra;
 
   vesktop
 
-  godot_4_5-mono
+  godot_4-mono
 
   scrcpy
   yt-dlp

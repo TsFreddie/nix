@@ -52,7 +52,6 @@ with extra;
   bitwarden-desktop
   bitwarden-cli
   chromium
-  libreoffice-qt6
 
   qt5.qttools
   qpwgraph
@@ -83,6 +82,7 @@ with extra;
   uv
   nodejs
   bun
+  rustup
 
   lsfg-vk
   lsfg-vk-ui
@@ -91,4 +91,6 @@ with extra;
   (bottles.override {
     removeWarningPopup = true;
   })
+
+  onlyoffice-desktopeditors
 ]
