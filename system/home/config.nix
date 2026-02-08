@@ -24,10 +24,5 @@ in
         allowUnfree = true;
       };
     };
-
-    "utils/nid" = {
-      source = ../../nid.sh;
-      executable = true;
-    };
   };
 }

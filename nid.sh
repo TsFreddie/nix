@@ -84,6 +84,9 @@ if [[ "$1" == "setup" ]]; then
         exit 1
     fi
 
+    # Replace $NID_NAME with direnv in all files in .nid
+    find .nid -type f -exec sed -i 's/\$NID_NAME/direnv/g' {} \;
+
     # create appropriate .envrc based on file type
     if [[ "$source_type" == "default" ]]; then
         printf "watch_file .nid/*\nuse nix ./.nid\n" > .envrc

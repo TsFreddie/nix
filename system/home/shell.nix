@@ -31,7 +31,7 @@
     add_newline = false;
     format = lib.concatStrings [
       "$line_break"
-      "[@](bold green)  $nix_shell$directory$rust$package"
+      "$directory$all"
       "$line_break"
       "[$character](bold green)"
     ];
@@ -41,8 +41,9 @@
       error_symbol = "[!>](red)";
     };
     nix_shell = {
-      impure_msg = "i";
-      pure_msg = "p";
+      format = "via [$symbol$name$state]($style) ";
+      impure_msg = "";
+      pure_msg = " (pure)";
     };
   };
 
@@ -62,5 +63,10 @@
         };
       };
     };
+  };
+
+  # nid
+  home.shellAliases = {
+    nid = "/home/${var.username}/nix/nid.sh";
   };
 }
