@@ -24,7 +24,6 @@ with extra;
   beans.vbean-dev
 
   nwjs-sdk
-  nwjs-ffmpeg-prebuilt
 
   unityhub
   ryubing
