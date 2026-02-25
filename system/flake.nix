@@ -21,11 +21,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    waterfall = {
-      url = "github:Sanfrag/waterfall";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Custom packages
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -44,7 +39,6 @@
       nixpkgs,
       home-manager,
       plasma-manager,
-      waterfall,
       aagl,
       ...
     }@inputs:
@@ -78,8 +72,6 @@
                   ./configuration.nix
                   ./nixos
                   ./var/no-nix-channel.nix
-
-                  waterfall.nixosModules.waterfall
 
                   {
                     imports = [ aagl.nixosModules.default ];

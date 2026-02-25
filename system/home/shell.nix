@@ -50,6 +50,7 @@
   # custom utilities path
   home.sessionPath = [
     "$HOME/utils"
+    "$HOME/.bun/bin"
   ];
 
   # alacritty settings

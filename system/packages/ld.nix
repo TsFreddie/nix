@@ -20,19 +20,19 @@ with extra;
   xz
   systemd
 
-  xorg.libX11
-  xorg.libXext
-  xorg.libXi
-  xorg.libXrender
-  xorg.libXtst
-  xorg.libXrandr
-  xorg.libXinerama
-  xorg.libXcursor
-  xorg.libXdamage
-  xorg.libXfixes
-  xorg.libXcomposite
-  xorg.libxkbfile
-  xorg.libxcb
+  libX11
+  libXext
+  libXi
+  libXrender
+  libXtst
+  libXrandr
+  libXinerama
+  libXcursor
+  libXdamage
+  libXfixes
+  libXcomposite
+  libxkbfile
+  libxcb
   libxkbcommon
   libgbm
   freetype

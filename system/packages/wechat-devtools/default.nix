@@ -22,10 +22,10 @@ pkgs.appimageTools.wrapType2 rec {
       gnome-shell
       gtk3
       glib
-      xorg.libX11
-      xorg.libXcomposite
-      xorg.libXrandr
-      xorg.libxshmfence
+      libX11
+      libXcomposite
+      libXrandr
+      libxshmfence
       fontconfig
       noto-fonts
       noto-fonts-cjk-sans

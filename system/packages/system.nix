@@ -16,7 +16,7 @@ with extra;
   btop-cuda
 
   xsettingsd
-  xorg.xrdb
+  xrdb
 
   kdePackages.partitionmanager
   kdePackages.filelight
