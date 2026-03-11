@@ -70,4 +70,12 @@
   home.shellAliases = {
     nid = "/home/${var.username}/nix/nid.sh";
   };
+
+  # micro editor
+  programs.micro.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "micro";
+    VISUAL = "micro";
+  };
 }

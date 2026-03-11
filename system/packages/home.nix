@@ -33,4 +33,6 @@ with extra;
   (callPackage ./vscode { })
   (callPackage ./ugreenlink { })
   # (callPackage ./wechat-devtools { })
+
+  affinity
 ]

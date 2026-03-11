@@ -3,6 +3,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -40,6 +45,7 @@
       home-manager,
       plasma-manager,
       aagl,
+      affinity-nix,
       ...
     }@inputs:
     let
@@ -47,6 +53,7 @@
       extra = {
         zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
+        affinity = affinity-nix.packages.${system}.v3;
       };
       lib = nixpkgs.lib;
       var = import ./var.nix;
