@@ -27,12 +27,6 @@
     };
 
     # Custom packages
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
     beans = {
       url = "github:Sanfrag/beans";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +45,6 @@
     let
       system = "x86_64-linux";
       extra = {
-        zen-browser = inputs.zen-browser.packages.${system};
         beans = inputs.beans.packages.${system};
         affinity = affinity-nix.packages.${system}.v3;
       };

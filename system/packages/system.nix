@@ -61,8 +61,6 @@ with extra;
   icu
   wl-clipboard
 
-  zen-browser.default
-
   dotnet-sdk_9
   protontricks
 
