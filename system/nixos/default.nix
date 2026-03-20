@@ -81,7 +81,7 @@
   hardware.opentabletdriver.enable = true;
 
   # Linux kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
 
   services.fwupd.enable = true;

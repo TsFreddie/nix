@@ -31,6 +31,12 @@
       url = "github:Sanfrag/beans";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # zw-type
+    zw-type = {
+      url = "github:psynyde/zw-type";
+      inputs.zig2nix.inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -40,6 +46,7 @@
       plasma-manager,
       aagl,
       affinity-nix,
+      zw-type,
       ...
     }@inputs:
     let

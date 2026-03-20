@@ -87,6 +87,13 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+
+    wireplumber.extraConfig = {
+      "99-crackling-fix" = {
+        "api.alsa.period-size" = 1024;
+        "api.alsa.headroom" = 8192;
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).

@@ -59,7 +59,6 @@ with extra;
   okteta
 
   icu
-  wl-clipboard
 
   dotnet-sdk_9
   protontricks
@@ -82,13 +81,14 @@ with extra;
   bun
   rustup
 
-  lsfg-vk
-  lsfg-vk-ui
-
   android-tools
   (bottles.override {
     removeWarningPopup = true;
   })
 
   onlyoffice-desktopeditors
+
+  # wayland tools
+  wl-clipboard-rs
+  (callPackage ./kwtype { })
 ]
