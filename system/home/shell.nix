@@ -49,6 +49,7 @@
 
   # custom utilities path
   home.sessionPath = [
+    "$HOME/.local/bin"
     "$HOME/utils"
     "$HOME/.bun/bin"
   ];
