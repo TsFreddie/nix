@@ -8,7 +8,6 @@ with extra;
   wget
   nixd
   nixfmt
-  mailspring
   gamescope
   mpv
   vial
