@@ -8,7 +8,7 @@ with extra;
   wget
   nixd
   nixfmt
-  thunderbird
+  mailspring
   gamescope
   mpv
   vial
@@ -80,6 +80,8 @@ with extra;
   nodejs
   bun
   rustup
+
+  gh
 
   android-tools
   (bottles.override {
