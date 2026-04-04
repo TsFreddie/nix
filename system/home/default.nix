@@ -51,6 +51,7 @@
     };
     signing = {
       key = "73AEEBCE3A3F9C766E0BBB183054B1FC80F9AF6F";
+      format = "openpgp";
       signByDefault = true;
     };
     lfs.enable = true;

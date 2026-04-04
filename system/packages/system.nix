@@ -48,8 +48,7 @@ with extra;
   unzip
   zip
 
-  bitwarden-desktop
-  bitwarden-cli
+  enpass
   chromium
 
   qt5.qttools
@@ -63,6 +62,7 @@ with extra;
   protontricks
 
   ripgrep
+  fd
   rsync
 
   # fix some GTK issues

@@ -72,8 +72,10 @@
     nid = "/home/${var.username}/nix/nid.sh";
   };
 
-  # micro editor
-  programs.micro.enable = true;
+  # editor
+  programs.fresh-editor = {
+    enable = true;
+  };
 
   home.sessionVariables = {
     EDITOR = "micro";
