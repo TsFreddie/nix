@@ -4,7 +4,7 @@
   # zsh
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     if [[ -f "$HOME/.myrc" ]]; then
       source "$HOME/.myrc"
     fi
