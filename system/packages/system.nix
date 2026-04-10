@@ -58,7 +58,6 @@ with extra;
 
   icu
 
-  dotnet-sdk_9
   protontricks
 
   ripgrep

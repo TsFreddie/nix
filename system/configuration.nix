@@ -7,7 +7,6 @@
 {
   pkgs,
   var,
-  lib,
   ...
 }:
 
@@ -58,7 +57,7 @@
   services.desktopManager.plasma6.enable = true;
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = false;
+    xdgOpenUsePortal = true;
     extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
   };
 
@@ -110,7 +109,12 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    policies = {
+      DisableTelemetry = true;
+    };
+  };
 
   # List services that you want to enable:
 

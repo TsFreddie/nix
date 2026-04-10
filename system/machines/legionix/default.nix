@@ -47,6 +47,8 @@
   hardware.amdgpu.initrd.enable = false;
   services.tlp.enable = !config.services.power-profiles-daemon.enable;
   services.fstrim.enable = true;
+  environment.variables.LIBVA_DRIVER_NAME = "nvidia";
+  environment.variables.MOZ_DISABLE_RDD_SANDBOX = "1";
 
   # Use beta driver
   hardware = {

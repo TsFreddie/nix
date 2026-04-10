@@ -4,6 +4,11 @@
   # zsh
   programs.zsh.enable = true;
   programs.zsh.autosuggestion.enable = true;
+  programs.zsh.initExtra = ''
+    if [[ -f "$HOME/.myrc" ]]; then
+      source "$HOME/.myrc"
+    fi
+  '';
 
   # zoxide
   programs.zoxide = {
@@ -35,7 +40,7 @@
       "$line_break"
       "[$character](bold green)"
     ];
-    scan_timeout = 100;
+    scan_timeout = 500;
     character = {
       success_symbol = " >";
       error_symbol = "[!>](red)";
@@ -78,7 +83,7 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "micro";
-    VISUAL = "micro";
+    EDITOR = "fresh";
+    VISUAL = "fresh";
   };
 }
