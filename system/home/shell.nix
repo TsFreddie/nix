@@ -76,6 +76,8 @@
       set -g extended-keys on
       set -g extended-keys-format csi-u
       set -g mouse on
+      set -g default-terminal "screen-256color"
+      set-option -sa terminal-overrides ",xterm-kitty:RGB"
     '';
   };
 
