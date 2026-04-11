@@ -59,16 +59,14 @@
     "$HOME/.bun/bin"
   ];
 
-  # alacritty settings
-  programs.alacritty = {
+  # kitty settings
+  programs.kitty = {
     enable = true;
     settings = {
-      font = {
-        normal = {
-          family = "Sarasa Term SC";
-          style = "Regular";
-        };
-      };
+      font_family = "Sarasa-Term-SC-Regular";
+      bold_font = "Sarasa-Term-SC-Bold";
+      italic_font = "Sarasa-Term-SC-Italic";
+      bold_italic_font = "Sarasa-Term-SC-Bold-Italic";
     };
   };
 

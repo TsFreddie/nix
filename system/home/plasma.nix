@@ -29,7 +29,7 @@
 
     # shortcuts
     shortcuts = {
-      "services/Alacritty.desktop".New = "Ctrl+Alt+T";
+      "services/kitty.desktop"."_launch" = "Ctrl+Alt+T";
       "services/org.kde.konsole.desktop"."_launch" = [ ];
     };
   };

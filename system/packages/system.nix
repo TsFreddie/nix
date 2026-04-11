@@ -40,7 +40,8 @@ with extra;
 
   qalculate-qt
 
-  alacritty
+  kitty
+  kitty-img
   gearlever
 
   p7zip
