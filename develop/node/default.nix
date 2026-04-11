@@ -7,7 +7,7 @@ pkgs.mkShell {
   '';
   packages = with pkgs; [
     # Add packages here
-    nodejs_22
+    nodejs
     pnpm
     yarn
   ];
