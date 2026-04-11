@@ -70,6 +70,14 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set -g extended-keys on
+      set -g extended-keys-format csi-u
+    '';
+  };
+
   # nid
   home.shellAliases = {
     nid = "/home/${var.username}/nix/nid.sh";

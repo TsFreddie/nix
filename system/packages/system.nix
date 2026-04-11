@@ -92,4 +92,8 @@ with extra;
   # wayland tools
   wl-clipboard-rs
   (callPackage ./kwtype { })
+
+  # sandboxing
+  bubblewrap
+  socat
 ]
