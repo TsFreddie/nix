@@ -75,6 +75,7 @@
     extraConfig = ''
       set -g extended-keys on
       set -g extended-keys-format csi-u
+      set -g mouse on
     '';
   };
 
