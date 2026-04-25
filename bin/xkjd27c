@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# Script to update rime_jd27c schema for fcitx5
+
+set -e
+
+RIME_DIR="${HOME}/.local/share/fcitx5/rime"
+LOCAL_DIR="${HOME}/nix/files/.local/share/fcitx5/rime"
+TEMP_DIR=$(mktemp -d)
+REPO_URL="https://github.com/xkjd27/rime_jd27c/archive/refs/heads/master.zip"
+EXTRACTED_DIR="${TEMP_DIR}/rime_jd27c-master/rime"
+
+echo "=== Downloading rime_jd27c ==="
+cd "$TEMP_DIR"
+curl -L -o master.zip "$REPO_URL"
+unzip -o master.zip
+
+echo "=== Copying rime files to ${RIME_DIR} ==="
+mkdir -p "${RIME_DIR}/lua"
+
+# Copy only xkjd27c yaml files from repo (does not affect other files)
+cp -f "${EXTRACTED_DIR}"/xkjd27c*.yaml "${RIME_DIR}/"
+
+# Copy lua scripts
+cp -f "${EXTRACTED_DIR}/lua/"*.lua "${RIME_DIR}/lua/"
+
+# Copy rime.lua
+cp -f "${EXTRACTED_DIR}/rime.lua" "${RIME_DIR}/"
+
+echo "=== Copying rime files to ${LOCAL_DIR} ==="
+mkdir -p "${LOCAL_DIR}/lua"
+
+# Copy to nix files directory
+cp -f "${RIME_DIR}"/xkjd27c*.yaml "${LOCAL_DIR}/"
+cp -f "${RIME_DIR}"/rime.lua "${LOCAL_DIR}/"
+cp -f "${RIME_DIR}/lua/jd27"*.lua "${LOCAL_DIR}/lua/"
+
+echo "=== Files in ${LOCAL_DIR} ==="
+find "${LOCAL_DIR}" -type f | sort
+
+echo ""
+echo "=== Done! ==="
+echo "Rime JD27C schema has been updated in both ${RIME_DIR} and ${LOCAL_DIR}"

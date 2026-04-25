@@ -49,7 +49,7 @@ with extra;
   unzip
   zip
 
-  enpass
+  bitwarden-desktop
   chromium
 
   qt5.qttools

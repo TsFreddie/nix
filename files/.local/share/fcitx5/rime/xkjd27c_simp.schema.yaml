@@ -1,0 +1,109 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: xkjd27c_simp
+  name: 键道27C・袖简
+  version: "0.1"
+  author:
+    - TsFreddie
+  description: |
+    袖珍简化字＋键道27C双拼方案。
+  dependencies:
+    - stroke
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中, 英 ]
+  - name: full_shape
+    states: [ 半, 全 ]
+  - name: simplification
+    states: [ 简, 繁 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - lua_processor@topup_flow
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator
+  filters:
+    - simplifier
+    - uniquifier
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba;
+  initials: zyxwvutsrqponmlkjihgfedcba;
+  delimiter: " '"
+  algebra:
+    - erase/^xx$/
+    # - abbrev/^([a-z]).+$/!$1/
+    # - abbrev/^sh.+$/U/
+    # - abbrev/^ch.+$/Y/
+    # - abbrev/^zh.+$/;/
+    - xform/^([jqxy])u$/$1v/
+    - xform/^([aoe].*)$/x$1/
+    - xform/^([ae])(.*)$/$1$1$2/
+    - xform/^you$/yiu/
+    - xform/^y(ang|ong|an|a|ao)$/yi$1/
+    - xform/^sh/U/
+    - xform/^ch/Y/
+    - xform/^zh/;/
+    - xform/^y/F/
+    - xform/ai$|ue$/H/
+    - xform/iu$|ua$/Q/
+    - xform/ei$|un$/W/
+    - xform/iao$/C/
+    - xform/ao$/Z/
+    - xform/eng$/P/
+    - xform/i?ong$/J/
+    - xform/[iu]ang$/X/
+    - xform/ang$/L/
+    - xform/i?a$/R/
+    - xform/u?o$/U/
+    - xform/ou$|ie$/S/
+    - xform/uan$/G/
+    - xform/ian$/M/
+    - xform/an$/T/
+    - xform/uai$|ing$/D/
+    - xform/in$|ui$/B/
+    - xform/en$/K/
+    - xform/e$/F/
+    - xform/u$|er$/N/
+    - xform/i$/Y/
+    - xform/v$/;/
+    - xform/!//
+    - xlit/QWRTYUIOPSDFGHMJCKLZXVBN/qwrtyuiopsdfghmjcklzxvbn/
+    - abbrev/^(.).+$/$1/
+
+translator:
+  dictionary: pinyin_simp
+  prism: xkjd27c_simp
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+
+simplifier:
+  opencc_config: s2t.json
